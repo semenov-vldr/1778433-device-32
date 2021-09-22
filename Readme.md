@@ -1,7 +1,7 @@
 # Личный проект «Девайс»
 
 * Студент: [Владимир Семенов](https://up.htmlacademy.ru/htmlcss/32/user/1778433).
-* Наставник: `Алёна Сиприкова`.
+* Наставник: [Алёна Сиприкова](https://htmlacademy.ru/profile/asiprikova).
 
 ---
 

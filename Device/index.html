@@ -10,14 +10,12 @@
         <a href="" class="logo-link">
             <img class="logo" src="" alt="Логотип магазина гаджетов «Device»">
         </a>
-        <div class="user-menu"> 
-            
-            <div class="search"> <!--Поиск-->
-                <form class="search-form" action="" method="GET"> 
-                    <button class="search-button" type="submit"></button>
-                    <input type="search" placeholder="Поиск по сайту">
-                </form>
-            </div>
+        <div class="user-menu">
+
+            <form class="search" action="" method="GET"> <!--Поиск-->
+                <button class="search-button" type="submit"></button>
+                <input type="search" placeholder="Поиск по сайту">
+            </form>
 
             <div class="login"> <!--Авторизация-->
                 <a class="login-link" href="#" >Войти</a>
@@ -34,36 +32,37 @@
             </div>
         </div>
 
-    <!--Навигазия-->
+    <!--Навигация-->
         <nav class="navigation">
         <ul class="navigation-catalog">
-            <ul class="catalog-link">
+            <ul class="catalog-list-main">
                 <li>
                     <a class="catalog-link" href="#">Каталог товаров</a>
+
+                    <ul class="catalog-list">
+                        <li class="catalog-item">
+                            <a class="catalog-item-link" href="#">Виртуальная реальность</a>
+                        </li>
+                        <li class="catalog-item">
+                            <a class="catalog-item-link" href="#">Моноподы для селфи</a>
+                        </li>
+                        <li class="catalog-item">
+                            <a class="catalog-item-link" href="#">Экшн-камеры</a>
+                        </li>
+                        <li class="catalog-item">
+                            <a class="catalog-item-link" href="#">Фитнес-браслет</a>
+                        </li>
+                        <li class="catalog-item">
+                            <a class="catalog-item-link" href="#">Умные часы</a>
+                        </li>
+                        <li class="catalog-item">
+                            <a class="catalog-item-link" href="#">Квадрокоптеры</a>
+                        </li>
+                    </ul>
                 </li>
-                <ul class="catalog-list">
-                    <li class="catalog-item">
-                        <a class="catalog-item-link" href="#">Виртуальная реальность</a>
-                    </li>
-                    <li class="catalog-item">
-                        <a class="catalog-item-link" href="#">Моноподы для селфи</a>
-                    </li>
-                    <li class="catalog-item">
-                        <a class="catalog-item-link" href="#">Экшн-камеры</a>
-                    </li>
-                    <li class="catalog-item">
-                        <a class="catalog-item-link" href="#">Фитнес-браслет</a>
-                    </li>
-                    <li class="catalog-item">
-                        <a class="catalog-item-link" href="#">Умные часы</a>
-                    </li>
-                    <li class="catalog-item">
-                        <a class="catalog-item-link" href="#">Квадрокоптеры</a>
-                    </li>
-                </ul>
             </ul>
         </ul>
-        
+
         <ul class="navigation-list">
             <li class="navigation-item">
                 <a class="navigation-link" href="delivery.html">Доставка</a>
@@ -87,14 +86,14 @@
         <section class="slider-main">
             <div class="slider-item">
                 <img class="slider-image" src="" alt="Квадракоптер">
-              
+
                 <h2 class="slider-text-big">Порхает как бабочка,
                    жалит как пчела!
                 </h2>
                 <h3 class="slider-text">Этот обычный, на первый взгляд, квадрокоптер оснащен мощным лазером, замаскированным под стандартную камеру.
                 </h3>
                 <a href="#" class="button-yellow-line">Подробнее</a> <!--Кнопка с желтой полосой-->
-               
+
                 <ul class="parameter">
                     <li class="parameter-value">800 м</li>
                     <li class="parameter-description">Дальность полета</li>
@@ -109,11 +108,11 @@
             <!--Слайд фитнес-браслет-->
             <div class="slider-item">
                 <img class="slider-image" src="" alt="Фитнес-браслет">
-             
+
                 <h2 class="slider-text-big">Худеем правильно!</h2>
                 <h3 class="slider-text">Мотивирующие фитнес-браслеты помогут найти в себе силы не пропускать занятия и соблюдать диету.</h3>
                 <a href="#" class="button-yellow-line">Подробнее</a> <!--Кнопка с желтой полосой-->
-               
+
                 <ul class="parameter">
                     <li class="parameter-value">48 часов</li>
                     <li class="parameter-description">Без подзарядки</li>
@@ -124,12 +123,12 @@
               <!--Слайд селфи-палка-->
               <div class="slider-item">
                 <img class="slider-image" src="" alt="Селфи-палка">
-              
+
                 <h2 class="slider-text-big">Делай селфи,
                     как Бен Стиллер! </h2>
                 <h3 class="slider-text">Самая длинная палка для селфи доступна в нашем магазине. Восемь (Восемь, Карл!) метров длиной и весом всего 5 кг.</h3>
                 <a href="#" class="button-yellow-line">Подробнее</a> <!--Кнопка с желтой полосой-->
-                
+
                 <ul class="parameter">
                     <li class="parameter-value">8,5 м</li>
                     <li class="parameter-description">Длина палки</li>
@@ -143,7 +142,7 @@
                     <li class="parameter-description">Материал</li>
                 </ul>
             </div>
-            <!--/Слайд селфи-палка-->  
+            <!--/Слайд селфи-палка-->
 
             <div> <!--Кнопки вперед/назад-->
                 <button class="slider-button slider-prev" type="button">
@@ -189,7 +188,7 @@
                 <li class="categories-item">
                     <a class="categories-item-link" href="monopod.html">
                         <img class="categories-item-image" src="" alt="">
-                        <h3 class="categories-title">Моноподы 
+                        <h3 class="categories-title">Моноподы
                             для селфи</h3>
                     </a>
                 </li>
@@ -262,9 +261,9 @@
             <div class="about-the-company-delivery">
                 <img class="about-the-company-delivery-image" src="" alt="">
                 <span class="about-the-company-delivery-text">Доставим редкий товар под заказ</span>
-                <button class="info" type="button">
+                <a class="info" href="#">
                     <span class="visually-hidden">Посмотреть доп. информацию</span>
-                </button>
+                </a>
             </div>
             <!--О нас-->
             <div class="about-us">
@@ -281,14 +280,14 @@
              <!--О нас-->
 
              <!--Контакты-->
-             <div class="contacts">
+            <div class="contacts">
                 <h2 class="contacts-title">Контакты</h2>
                 <p class="contacts-text">Вы можете забрать товар сами, заехав в наш офис. Заодно, сможете проверить работоспособность покупки. </p>
                 <h3 class="contacts-subtitle">Интернет-магазин «Девайс»</h3>
                 <address class="contacts-address">Санкт-Петербург, набережная реки Карповки, 5, литера П.</address>
                 <a class="contacts-phone" href="tel:+78128121212">+7 (812) 812-12-12</a>
                 <a class="button-contacts button-yellow-line" href="#">Напишите нам</a>
-             </div>
+            </div>
               <!--/Контакты-->
         </section>
         <!-----------------------/О компании----------------------->
@@ -329,7 +328,7 @@
              </ul>
 
              <!--Социальные сети-->
-            <div class="footer-social">   
+            <div class="footer-social">
                 <h2 class="visually-hidden">Давай дружить</h2>
                 <ul class="footer-social-list">
                     <li class="footer-social-item">
@@ -355,8 +354,8 @@
             <a class="footer-contacts-phone" href="tel:+78128121212">Тел: +7 (812) 812-12-12</a>
         </div>
         <a class="htmlacademy-link" href="https://htmlacademy.ru/">
-        <img class="htmlacademy-image" src="" alt="Эмблема html-academy">
-    </a>
+            <img class="htmlacademy-image" src="" alt="Эмблема html-academy">
+        </a>
      </footer>
         <!---------------------------/Футер------------------------------->
   </body>

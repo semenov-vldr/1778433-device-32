@@ -1,0 +1,309 @@
+ @font-face {
+    font-family: "Raleway";
+    font-style: normal;
+    font-weight: 800;
+    src: url("/fonts/raleway/raleway-800.woff2") format("woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Rubik";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/fonts/rubik/rubik-400.woff2") format("woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Rubik";
+    font-style: normal;
+    font-weight: 700;
+    src: url("/fonts/rubik/rubik-700.woff2") format("woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Rubik";
+    font-style: normal;
+    font-weight: 800;
+    src: url("/fonts/rubik/rubik-800.woff2") format("woff2");
+    font-display: swap;
+}
+
+*{
+    text-decoration: none;
+}
+
+body{
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
+    background-color: #ffffff;
+    color: #444444;
+}
+
+/* У всех элементов списка уберем маркеры */
+li{
+    list-style-type: none;
+}
+
+/* .visually-hidden{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+} */
+
+/* ------------------------------Header--------------------------------- */
+
+
+header{
+    color: #000000;
+    background-color: #FFE17F;
+}
+
+
+/* Поле поиска
+.search{
+} */
+
+
+/* Ссылка "Войти" */
+.login-link {
+    color: inherit; 
+    font-size: 16px;
+    line-height: 19px;
+    margin-left: 10px;
+}
+
+/* Ссылки "Сравнить" и "Корзина" */
+.header-icon-link{
+    color: inherit; 
+    font-size: 16px;
+    line-height: 19px;
+    margin-left: 10px;
+}
+
+/* Навигация: "Каталог товаров" */
+.catalog-link{
+    font-family: "Raleway", sans-serif;
+    color: inherit;
+    line-height: 21px; 
+    text-transform: uppercase;
+}
+
+/* Навигация: "Доставка", "Гарантия", "Контакты" */
+.navigation-link{
+    font-family: "Raleway", sans-serif;
+    color: inherit;
+    line-height: 21px; 
+    text-transform: uppercase;
+}
+
+/* Ссылки внутри раскрывающегося меню каталога товаров */
+.catalog-item-link{
+    font-size: 16px;
+    line-height: 18px;
+    color: inherit;
+}
+/* ----------------------------/Header----------------------------- */
+
+
+/* ------------------------------Main------------------------------ */
+
+/* ----Slider------ */
+
+main{
+    color: #000000;
+}
+
+/* Крупный текст на слайдере */
+.slider-text-big{
+    font-family: "Raleway", sans-serif;
+    font-size: 50px;
+    line-height: 50px;
+}
+
+/* Мелкий текст на слайдере */
+.slider-text{ 
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Все кнопки с желтой линией */
+.button-yellow-line{
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    color: #000000;
+    line-height: 21px;
+    font-weight: 800;
+     background-color: #FFE17F; /*временный параметр */
+    letter-spacing: 0.2em;
+}
+
+/* Значение параметра на слайде */
+.parameter-value{
+    font-size: 36px;
+}
+
+/* Описание параметра на слайде */
+.parameter-description{
+    font-size: 16px;
+}
+
+/* ----/Slider------ */
+
+
+
+/* ----Categories------ */
+.categories-title{
+    font-family: "Raleway", sans-serif;
+    font-weight: 800;
+    line-height: 24px;
+    font-size: 18px;  /* не наследует от body - почему? */  
+    color: #000000;
+    letter-spacing: -0.02em;
+}
+/* ----/Categories------ */
+
+
+
+/* ------Services -------*/
+
+.services{
+    background-color: #F0F0F0;
+}
+
+.services-title{
+    font-family: "Raleway", sans-serif;
+    font-weight: 800;
+    font-size: 50px;
+    line-height: 50px;
+}
+
+.services-description{
+    color: #444444;
+}
+/* ------/Services -------*/
+
+
+
+/* ------About-the-company -------*/
+
+.about-the-company{
+    color: #444444;
+}
+
+
+.about-the-company-delivery{
+    background-color: #F0F0F0;
+}
+
+/* Стиль блока "Доставим редкий товар под заказ" */
+.about-the-company-delivery-text{
+    font-family: "Raleway", sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 0.2em;
+}
+
+/* Стили для заголовков "О нас" и "Контакты" */ 
+.about-us-title,
+.contacts-title{
+    font-family: "Raleway", sans-serif;
+    font-weight: 800;
+    font-size: 50px;
+    line-height: 50px;
+    color: #000000;
+}
+
+
+/* Стили для транспортных компаний */
+.transport-company-item{
+    list-style-type: disc;
+    color: #FFC700;
+}
+
+.transport-company-item span{
+    font-weight: 700;
+    color: #000000;
+}
+
+
+/* Подзаголовки в разделе "Контакты" */
+.contacts-subtitle{
+    font-size: 24px;
+}
+
+.contacts-phone{
+    color: inherit;
+}
+/* ------/About-the-company -------*/
+
+
+/* ------Newsletter -------*/
+
+.newsletter{
+    background-color: #F0F0F0;
+}
+
+.newsletter-title{
+    font-family: "Raleway", sans-serif;
+    font-weight: 800;
+    font-size: 50px;
+    line-height: 50px;
+    color: #000000;
+}
+
+.newsletter-button{
+    font-family: "Raleway", sans-serif;
+    font-weight: 800;
+    line-height: 21px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.newsletter-text{
+    color: #444444;
+}
+/* ------/Newsletter -------*/
+
+/* ------------------------------/Main------------------------------ */
+
+
+/* ------Page-footer -------*/
+
+.page-footer{
+    background-color: #444444;
+}
+
+.footer-contacts-address{
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 19px;
+    font-style: normal;
+}
+
+.footer-services-item{
+    font-family: "Raleway", sans-serif;
+    font-weight: 800;
+    line-height: 21px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.footer-contacts-phone{
+    font-size: 16px;
+    color: #ffffff;
+}
+
+/* ------Page-footer -------*/

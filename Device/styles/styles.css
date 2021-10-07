@@ -2,7 +2,7 @@
     font-family: "Raleway";
     font-style: normal;
     font-weight: 800;
-    src: url("/fonts/raleway/raleway-800.woff2") format("woff2");
+    src: url("../fonts/raleway/raleway-800.woff2") format("woff2");
     font-display: swap;
 }
 
@@ -10,7 +10,7 @@
     font-family: "Rubik";
     font-style: normal;
     font-weight: 400;
-    src: url("/fonts/rubik/rubik-400.woff2") format("woff2");
+    src: url("../fonts/rubik/rubik-400.woff2") format("woff2");
     font-display: swap;
 }
 
@@ -18,21 +18,10 @@
     font-family: "Rubik";
     font-style: normal;
     font-weight: 700;
-    src: url("/fonts/rubik/rubik-700.woff2") format("woff2");
+    src: url("../fonts/rubik/rubik-700.woff2") format("woff2");
     font-display: swap;
 }
 
-@font-face {
-    font-family: "Rubik";
-    font-style: normal;
-    font-weight: 800;
-    src: url("/fonts/rubik/rubik-800.woff2") format("woff2");
-    font-display: swap;
-}
-
-*{
-    text-decoration: none;
-}
 
 body{
     font-family: "Rubik", sans-serif;
@@ -41,11 +30,17 @@ body{
     line-height: 30px;
     background-color: #ffffff;
     color: #444444;
+    text-decoration: none;
 }
 
 /* У всех элементов списка уберем маркеры */
 li{
     list-style-type: none;
+}
+
+/* У всех ссылок уберем подчеркивание */
+a {
+    text-decoration: none;
 }
 
 /* .visually-hidden{
@@ -120,15 +115,13 @@ header{
 
 /* ----Slider------ */
 
-main{
-    color: #000000;
-}
 
 /* Крупный текст на слайдере */
 .slider-text-big{
     font-family: "Raleway", sans-serif;
     font-size: 50px;
     line-height: 50px;
+    color: #000000;
 }
 
 /* Мелкий текст на слайдере */
@@ -151,6 +144,7 @@ main{
 /* Значение параметра на слайде */
 .parameter-value{
     font-size: 36px;
+    color: #000000;
 }
 
 /* Описание параметра на слайде */
@@ -186,6 +180,7 @@ main{
     font-weight: 800;
     font-size: 50px;
     line-height: 50px;
+    color: #000000;
 }
 
 .services-description{
@@ -196,11 +191,6 @@ main{
 
 
 /* ------About-the-company -------*/
-
-.about-the-company{
-    color: #444444;
-}
-
 
 .about-the-company-delivery{
     background-color: #F0F0F0;
@@ -213,6 +203,7 @@ main{
     font-size: 20px;
     line-height: 23px;
     letter-spacing: 0.2em;
+    color:#000000;
 }
 
 /* Стили для заголовков "О нас" и "Контакты" */ 
@@ -232,7 +223,7 @@ main{
     color: #FFC700;
 }
 
-.transport-company-item span{
+.transport-company-name{
     font-weight: 700;
     color: #000000;
 }

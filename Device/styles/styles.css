@@ -23,18 +23,17 @@
 }
 
 
-body{
+body {
     font-family: "Rubik", sans-serif;
     font-weight: 400;
     font-size: 18px;
     line-height: 30px;
     background-color: #ffffff;
     color: #444444;
-    text-decoration: none;
 }
 
 /* У всех элементов списка уберем маркеры */
-li{
+li {
     list-style-type: none;
 }
 
@@ -43,7 +42,7 @@ a {
     text-decoration: none;
 }
 
-/* .visually-hidden{
+.visually-hidden{
     position: absolute;
     width: 1px;
     height: 1px;
@@ -54,20 +53,30 @@ a {
     clip-path: inset(100%);
     clip: rect(0 0 0 0);
     overflow: hidden;
-} */
+}
 
 /* ------------------------------Header--------------------------------- */
 
 
-header{
+header {
     color: #000000;
     background-color: #FFE17F;
 }
 
 
-/* Поле поиска
-.search{
-} */
+/* Поле поиска */
+
+.placeholder-search {
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+}
+
+.placeholder-search::placeholder {
+    font-size: 16px;
+    line-height: 19px;
+    color: rgba(0, 0, 0, 0.3);
+
+} 
 
 
 /* Ссылка "Войти" */
@@ -75,7 +84,6 @@ header{
     color: inherit; 
     font-size: 16px;
     line-height: 19px;
-    margin-left: 10px;
 }
 
 /* Ссылки "Сравнить" и "Корзина" */
@@ -83,30 +91,35 @@ header{
     color: inherit; 
     font-size: 16px;
     line-height: 19px;
-    margin-left: 10px;
 }
 
 /* Навигация: "Каталог товаров" */
-.catalog-link{
+.catalog-link {
     font-family: "Raleway", sans-serif;
     color: inherit;
     line-height: 21px; 
+    font-weight: 800;
+    letter-spacing: 4.2px;
     text-transform: uppercase;
 }
 
 /* Навигация: "Доставка", "Гарантия", "Контакты" */
-.navigation-link{
+.navigation-link {
     font-family: "Raleway", sans-serif;
     color: inherit;
+    font-weight: 800;
     line-height: 21px; 
+    letter-spacing: 4.2px;
     text-transform: uppercase;
 }
 
 /* Ссылки внутри раскрывающегося меню каталога товаров */
-.catalog-item-link{
+.catalog-item-link {
+    font-family: "Rubik", sans-serif;
     font-size: 16px;
     line-height: 18px;
     color: inherit;
+    letter-spacing: 3.6px;
 }
 /* ----------------------------/Header----------------------------- */
 
@@ -115,9 +128,8 @@ header{
 
 /* ----Slider------ */
 
-
 /* Крупный текст на слайдере */
-.slider-text-big{
+.slider-text-big {
     font-family: "Raleway", sans-serif;
     font-size: 50px;
     line-height: 50px;
@@ -125,30 +137,31 @@ header{
 }
 
 /* Мелкий текст на слайдере */
-.slider-text{ 
+.slider-text { 
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 
-/* Все кнопки с желтой линией */
-.button-yellow-line{
+/* Кнопки со светло-желтой линией */
+.button-yellow-light-line {
     font-family: "Raleway", sans-serif;
     text-transform: uppercase;
     color: #000000;
     line-height: 21px;
     font-weight: 800;
-     background-color: #FFE17F; /*временный параметр */
-    letter-spacing: 0.2em;
+    /* background-color: #FFE17F; временный параметр */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0 7px, #FFE17F 7px 15px, rgba(0, 0, 0, 0) 15px 20px);
+    letter-spacing: 4.2px;
 }
 
 /* Значение параметра на слайде */
-.parameter-value{
+.parameter-value {
     font-size: 36px;
     color: #000000;
 }
 
 /* Описание параметра на слайде */
-.parameter-description{
+.parameter-description {
     font-size: 16px;
 }
 
@@ -157,13 +170,13 @@ header{
 
 
 /* ----Categories------ */
-.categories-title{
+.categories-title {
     font-family: "Raleway", sans-serif;
     font-weight: 800;
     line-height: 24px;
-    font-size: 18px;  /* не наследует от body - почему? */  
+    font-size: 18px; 
     color: #000000;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.48px;
 }
 /* ----/Categories------ */
 
@@ -171,11 +184,22 @@ header{
 
 /* ------Services -------*/
 
-.services{
+/* Кнопки с темно-желтой линией */
+.button-yellow-dark-line {
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    color: #000000;
+    line-height: 21px;
+    font-weight: 800;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0 7px, #FFC700 7px 15px, rgba(0, 0, 0, 0) 15px 20px);
+    letter-spacing: 4.2px;
+}
+
+.services {
     background-color: #F0F0F0;
 }
 
-.services-title{
+.services-title {
     font-family: "Raleway", sans-serif;
     font-weight: 800;
     font-size: 50px;
@@ -183,7 +207,7 @@ header{
     color: #000000;
 }
 
-.services-description{
+.services-description {
     color: #444444;
 }
 /* ------/Services -------*/
@@ -192,23 +216,23 @@ header{
 
 /* ------About-the-company -------*/
 
-.about-the-company-delivery{
+.about-the-company-delivery {
     background-color: #F0F0F0;
 }
 
 /* Стиль блока "Доставим редкий товар под заказ" */
-.about-the-company-delivery-text{
+.about-the-company-delivery-text {
     font-family: "Raleway", sans-serif;
     font-weight: 800;
     font-size: 20px;
     line-height: 23px;
-    letter-spacing: 0.2em;
+    letter-spacing: 4.6px;
     color:#000000;
 }
 
 /* Стили для заголовков "О нас" и "Контакты" */ 
 .about-us-title,
-.contacts-title{
+.contacts-title {
     font-family: "Raleway", sans-serif;
     font-weight: 800;
     font-size: 50px;
@@ -218,23 +242,27 @@ header{
 
 
 /* Стили для транспортных компаний */
-.transport-company-item{
+.transport-company-item {
     list-style-type: disc;
     color: #FFC700;
 }
 
-.transport-company-name{
+.transport-company-name {
     font-weight: 700;
     color: #000000;
 }
 
 
 /* Подзаголовки в разделе "Контакты" */
-.contacts-subtitle{
+.contacts-subtitle {
     font-size: 24px;
 }
 
-.contacts-phone{
+.contacts-address {
+    font-style: normal;
+}
+
+.contacts-phone {
     color: inherit;
 }
 /* ------/About-the-company -------*/
@@ -242,11 +270,11 @@ header{
 
 /* ------Newsletter -------*/
 
-.newsletter{
+.newsletter {
     background-color: #F0F0F0;
 }
 
-.newsletter-title{
+.newsletter-title {
     font-family: "Raleway", sans-serif;
     font-weight: 800;
     font-size: 50px;
@@ -254,15 +282,23 @@ header{
     color: #000000;
 }
 
-.newsletter-button{
+.newsletter-button {
     font-family: "Raleway", sans-serif;
     font-weight: 800;
     line-height: 21px;
-    letter-spacing: 0.2em;
+    letter-spacing: 4.2px;
     text-transform: uppercase;
 }
 
-.newsletter-text{
+/* Поле ввода e-mail */
+.field::placeholder {
+    color: #444444;
+    font-size: 18px;
+    line-height: 30px;
+    opacity: 0.5;
+}
+
+.newsletter-text {
     color: #444444;
 }
 /* ------/Newsletter -------*/
@@ -272,27 +308,27 @@ header{
 
 /* ------Page-footer -------*/
 
-.page-footer{
+.page-footer {
     background-color: #444444;
 }
 
-.footer-contacts-address{
+.footer-contacts-address {
     color: #ffffff;
     font-size: 16px;
     line-height: 19px;
     font-style: normal;
 }
 
-.footer-services-item{
+.footer-services-item {
     font-family: "Raleway", sans-serif;
     font-weight: 800;
     line-height: 21px;
-    letter-spacing: 0.2em;
+    letter-spacing: 4.2px;
     text-transform: uppercase;
     color: #ffffff;
 }
 
-.footer-contacts-phone{
+.footer-contacts-phone {
     font-size: 16px;
     color: #ffffff;
 }

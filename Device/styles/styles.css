@@ -22,8 +22,15 @@
     font-display: swap;
 }
 
+html {
+    height: 100%;
+}
 
 body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
     font-family: "Rubik", sans-serif;
     font-weight: 400;
     font-size: 18px;
@@ -42,7 +49,7 @@ a {
     text-decoration: none;
 }
 
-.visually-hidden{
+.visually-hidden {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -58,49 +65,124 @@ a {
 /* ------------------------------Header--------------------------------- */
 
 
-header {
+.page-header {
+    min-height: 323px;
     color: #000000;
     background-color: #FFE17F;
+    background: linear-gradient(to bottom, #ffffff 0 23px, #FFE17F 23px 323px);
 }
 
+.header-container {
+    margin: 0 auto;
+    width: 1160px;
+    padding-left: 60px;
+    padding-right: 60px;
+    box-sizing: border-box;
+}
 
-/* Поле поиска */
+/* блок поиска */
+.search-form {
+    width: 480px;
+}
 
+/* Поисковая строка */
 .placeholder-search {
     background-color: rgba(0, 0, 0, 0);
     border: 0;
+    margin-left: 20px;
 }
 
+/* Placeholder в поисковой строке */
 .placeholder-search::placeholder {
     font-size: 16px;
     line-height: 19px;
     color: rgba(0, 0, 0, 0.3);
-
-} 
-
-
-/* Ссылка "Войти" */
-.login-link {
-    color: inherit; 
-    font-size: 16px;
-    line-height: 19px;
 }
 
-/* Ссылки "Сравнить" и "Корзина" */
+/* Каталог товаров и сервисные ссылки */
+.navigation {
+    display: flex;
+    width: 1160px;
+    margin: 0 auto;
+    margin-top: 45px;
+    padding-left: 60px;
+    padding-right: 60px;
+    box-sizing: border-box;
+}
+
+.navigation-catalog{
+    margin: 0;
+    padding: 0;
+}
+
+.catalog {
+    margin: 0;
+    padding: 0;
+}
+
+/* Блок верхнего меню в шапке */
+.user-menu {
+    display: flex;
+    padding-right: 50px;
+    margin-top: 35px;
+}
+
+.header-icon-container {
+    width: 50%;
+}
+ 
+/* Список ссылок Войти, Сравнить и Корзина */
+.header-icon-list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
 .header-icon-link{
     color: inherit; 
     font-size: 16px;
     line-height: 19px;
+    margin-left: 10px;
+}
+
+.header-icon-item {
+    display: flex;
+}
+
+/* Ссылка "Войти" */
+.login {
+    margin-right: 190px;
+}
+
+.basket-image {
+    margin-left: 40px;
+}
+
+/* Список вложенных ссылок в Каталог товаров */
+.catalog-list {
+    margin: 0;
+    padding: 0;
 }
 
 /* Навигация: "Каталог товаров" */
 .catalog-link {
+    
     font-family: "Raleway", sans-serif;
     color: inherit;
     line-height: 21px; 
     font-weight: 800;
     letter-spacing: 4.2px;
     text-transform: uppercase;
+}
+
+.header-navigation-container {
+    margin-left: auto;
+}
+
+.navigation-list {
+    display: flex;
+    margin: 0;
+    padding: 0;
 }
 
 /* Навигация: "Доставка", "Гарантия", "Контакты" */
@@ -110,7 +192,13 @@ header {
     font-weight: 800;
     line-height: 21px; 
     letter-spacing: 4.2px;
-    text-transform: uppercase;
+    text-transform: uppercase; 
+}
+
+/* Ссылка Гарантия */
+.warranty-header {
+    margin-right: 70px;
+    margin-left: 30px;
 }
 
 /* Ссылки внутри раскрывающегося меню каталога товаров */
@@ -126,10 +214,30 @@ header {
 
 /* ------------------------------Main------------------------------ */
 
+.main-index {
+    flex-grow: 1;
+}
+
 /* ----Slider------ */
+
+.slider-main {
+    width: 1160px;
+    margin: 0 auto;
+}
+
+
+.slider-item {
+    display: flex;
+    margin: 0 auto;
+}
+
+.slider-info {
+    margin-left: 40px;
+}
 
 /* Крупный текст на слайдере */
 .slider-text-big {
+    Margin-bottom: 20px;
     font-family: "Raleway", sans-serif;
     font-size: 50px;
     line-height: 50px;
@@ -138,6 +246,7 @@ header {
 
 /* Мелкий текст на слайдере */
 .slider-text { 
+    margin-bottom: 30px;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -149,13 +258,22 @@ header {
     color: #000000;
     line-height: 21px;
     font-weight: 800;
-    /* background-color: #FFE17F; временный параметр */
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0 7px, #FFE17F 7px 15px, rgba(0, 0, 0, 0) 15px 20px);
     letter-spacing: 4.2px;
 }
 
+
 /* Значение параметра на слайде */
+
+.parameter-list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
 .parameter-value {
+    margin-top: 70px;
+    margin-right: 70px;
     font-size: 36px;
     color: #000000;
 }
@@ -170,7 +288,32 @@ header {
 
 
 /* ----Categories------ */
+
+.categories {
+    width: 1160px;
+    margin: 0 auto;
+}
+
+.categories-list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: space-between;
+}
+
+.categories-item-rect {
+    display: flex;
+    width: 160px;
+    height: 160px;
+    background-color: #FFE17F;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+
 .categories-title {
+    margin-top: 33px;
     font-family: "Raleway", sans-serif;
     font-weight: 800;
     line-height: 24px;
@@ -189,6 +332,7 @@ header {
     font-family: "Raleway", sans-serif;
     text-transform: uppercase;
     color: #000000;
+    border: 0;
     line-height: 21px;
     font-weight: 800;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0 7px, #FFC700 7px 15px, rgba(0, 0, 0, 0) 15px 20px);
@@ -196,10 +340,47 @@ header {
 }
 
 .services {
-    background-color: #F0F0F0;
+    background: linear-gradient(to bottom, #ffffff 0 100px, #F0F0F0 100px 388px);
+    width: 100%;
+}
+
+.services-container {
+    display: flex;
+    width: 1160px;
+    min-height: 388px;
+    margin: 0 auto;
+}
+
+/* Левая колонка сервисных кнопок */
+.services-button-column {
+    width: 280px;
+    margin-top: 90px;
+    border-right: 7px solid #000000;
+}
+
+.services-list {
+    margin: 0;
+    padding: 0;
+}
+
+.services-item {
+    margin-bottom: 45px;
+}
+
+.services-item:last-child {
+    margin-bottom: 0; 
+}
+
+
+/* Права колонка с информацией в разделе Сервисы */
+.services-right-column {
+    width: 500px;
+    margin: 70px 60px 0 116px;
 }
 
 .services-title {
+    margin: 0;
+    margin-bottom: 40px;
     font-family: "Raleway", sans-serif;
     font-weight: 800;
     font-size: 50px;
@@ -209,18 +390,41 @@ header {
 
 .services-description {
     color: #444444;
+    margin: 0;
 }
+
+/* Иконка в разделе Сервис */
+.service-image {
+    margin-top: 85px;
+}
+
 /* ------/Services -------*/
 
 
 
 /* ------About-the-company -------*/
 
+/* Блок "Доставим редкий товар под заказ" */
+
 .about-the-company-delivery {
-    background-color: #F0F0F0;
+    display: flex;
+    width: 1160px;
+    height: 100px;
+    margin: 90px auto 97px auto;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F0F0F0;  
 }
 
-/* Стиль блока "Доставим редкий товар под заказ" */
+.about-the-company-rect {
+    display: flex;
+    width: 125px;
+    height: 100px;
+    background-color: #FFE17F;
+    justify-content: center;
+    align-items: center;
+}
+
 .about-the-company-delivery-text {
     font-family: "Raleway", sans-serif;
     font-weight: 800;
@@ -228,6 +432,28 @@ header {
     line-height: 23px;
     letter-spacing: 4.6px;
     color:#000000;
+} 
+
+.about-the-company-container {
+    display: flex;
+    justify-content: space-between;
+    width: 1160px;
+    margin: 0 auto;
+    margin-bottom: 90px;
+}
+
+/* О компании */
+
+/* Колонка "О нас" */
+.about-us {
+    width: 520px;
+}
+
+/* Колонка "Контакты" */
+.contacts {
+    width: 520px;
+    padding-right: 50px;
+
 }
 
 /* Стили для заголовков "О нас" и "Контакты" */ 
@@ -240,6 +466,14 @@ header {
     color: #000000;
 }
 
+.about-us-text {
+    margin-top: 53px;
+    margin-bottom: 80px;
+}
+
+.transport-company-list {
+    margin-bottom: 76px;
+}
 
 /* Стили для транспортных компаний */
 .transport-company-item {
@@ -270,16 +504,50 @@ header {
 
 /* ------Newsletter -------*/
 
+
 .newsletter {
     background-color: #F0F0F0;
+    display: flex;
+}
+
+.newsletter-container {
+    width: 1160px;
+    margin: 0 auto;
+    padding-bottom: 135px;
+}
+
+/* Блок заголовка и текста */
+.title-and-text-newsletter {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 75px;
+    padding-right: 30px;
 }
 
 .newsletter-title {
+    width: 360px;
+    margin: 0;
     font-family: "Raleway", sans-serif;
     font-weight: 800;
     font-size: 50px;
     line-height: 50px;
     color: #000000;
+}
+
+.newsletter-text {
+    width: 560px;
+}
+
+.input-and-button-newsletter {
+    display: flex;
+}
+
+.field {
+    width: 560px;
+}
+
+.newsletter-form {
+    width: 600px;
 }
 
 .newsletter-button {
@@ -312,11 +580,28 @@ header {
     background-color: #444444;
 }
 
+.page-footer-container {
+    display: flex;
+    margin: 0 auto;
+    width: 1160px;
+    min-height: 320px;
+}
+
+.footer-address {
+    width: 250px;
+}
+
 .footer-contacts-address {
     color: #ffffff;
     font-size: 16px;
     line-height: 19px;
     font-style: normal;
+}
+
+.footer-services-list {
+    display: flex;
+    width: 460px;
+    justify-content: space-around;
 }
 
 .footer-services-item {
@@ -326,6 +611,26 @@ header {
     letter-spacing: 4.2px;
     text-transform: uppercase;
     color: #ffffff;
+}
+
+
+/* Блок социальных сетей */
+.footer-social {
+    width: 150px;
+}
+
+/* Список социальных сетей */
+.footer-social-list {
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+  
+}
+
+.footer-phone,
+.htmlacademy-link {
+    margin-left: auto;
 }
 
 .footer-contacts-phone {

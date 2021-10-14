@@ -3,43 +3,53 @@
   <head>
     <meta charset="utf-8">
     <title>Монопод</title>
+    <link rel="stylesheet" href="styles/styles.css">
   </head>
   <body>
        <!--header страницы-->
        <header class="page-header">
+        <div class="header-container">
         <a href="" class="logo-link">
-            <img class="logo" src="" alt="Логотип магазина гаджетов «Device»">
+            <img class="logo" src="./image/logo/device-logo-head.svg" alt="Логотип «Device»">
         </a>
-        <div class="user-menu">
-
-            <form class="search" action="" method="GET"> <!--Поиск-->
-                <button class="search-button" type="submit"></button>
-                <input type="search" placeholder="Поиск по сайту">
-            </form>
-
-            <div class="login"> <!--Авторизация-->
-                <a class="login-link" href="#" >Войти</a>
+        <div class="user-menu"> 
+            <div class="search"> <!--Поиск-->
+                <form class="search-form" action="" method="GET"> 
+                    <button class="search-button" type="submit">
+                        <img class="search-image" src="./image/icons/search.svg" alt="Лупа поиска">
+                    </button>
+                    <input class="placeholder-search" type="search" placeholder="Поиск по сайту">
+                </form>
             </div>
+            
+            <div class="header-icon-container">
+                    <ul class="header-icon-list">
+                        <li class="header-icon-item login"> <!--Войти-->
+                            <img class="login-image" src="./image/icons/login.svg" alt="Авторизация">
+                    <a class="header-icon-link" href="#" >Войти</a>
+                        </li>
 
-                <ul class="compare-and-basket-list">
-                    <li class="compare-item"> <!--Сравнить-->
-                        <a class="compare-link" href="#" >Сравнить</a>
-                    </li>
-                    <li class="basket-item"> <!--Корзина-->
-                        <a class="basket-link" href="#" >Корзина</a>
-                    </li>
-                </ul>
+                        <li class="header-icon-item"> <!--Сравнить-->
+                            <img class="compare-image" src="./image/icons/compare.svg" alt="Сравнение">
+                            <a class="header-icon-link" href="#" >Сравнить</a>
+                        </li>
+                        <li class="header-icon-item basket"> <!--Корзина-->
+                            <img class="basket-image" src="./image/icons/basket.svg" alt="Корзина">
+                            <a class="header-icon-link" href="#" >Корзина</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
 
-    <!--Навигазия-->
+    <!--Навигация-->
         <nav class="navigation">
         <ul class="navigation-catalog">
-            <ul class="catalog-list-main">
-                <li>
+            <ul class="catalog">
+                <li class="catalog-item-main">
                     <a class="catalog-link" href="#">Каталог товаров</a>
 
-                    <ul class="catalog-list">
+                <!-- <ul class="catalog-list">
                         <li class="catalog-item">
                             <a class="catalog-item-link" href="#">Виртуальная реальность</a>
                         </li>
@@ -58,44 +68,28 @@
                         <li class="catalog-item">
                             <a class="catalog-item-link" href="#">Квадрокоптеры</a>
                         </li>
-                    </ul>
+                    </ul> -->
                 </li>
             </ul>
         </ul>
 
-        <ul class="navigation-list">
-            <li class="navigation-item">
-                <a class="navigation-link" href="delivery.html">Доставка</a>
-            </li>
-            <li class="navigation-item">
-                <a class="navigation-link" href="warranty.html">Гарантия</a>
-            </li>
-            <li class="navigation-item">
-                <a class="navigation-link" href="contacts.html">Контакты</a>
-            </li>
-        </ul>
+        <div class="header-navigation-container">
+            <ul class="navigation-list">
+                <li class="navigation-item">
+                    <a class="navigation-link" href="delivery.html">Доставка</a>
+                </li>
+                <li class="navigation-item warranty-header">
+                    <a class="navigation-link" href="warranty.html">Гарантия</a>
+                </li>
+                <li class="navigation-item">
+                    <a class="navigation-link contacts-link-header" href="contacts.html">Контакты</a>
+                </li>
+            </ul>
+        </div>
     </nav>
     </header>
-       <!-- Конец header страницы-->
 
-       <!--Main "Моноподы для селфи" -->
-       <main class="main-inner">
-           <header class="iner-header">
-                <h1 class="inner-header-title">Моноподы для селфи
-                </h1>
-                <ul class="breadcrubs">
-                    <li class="breadcrubs-item">
-                        <a class="breadcrubs-link" href="index.html">Главная</a>
-                    </li>
-                    <li class="breadcrubs-item">
-                        <a class="breadcrubs-link" href="catolog.html">Каталог</a>
-                    </li>
-                    <li class="breadcrubs-item">
-                        <a class="breadcrubs-link">Моноподы для селфи</a>
-                    </li>
-                </ul>
-           </header>
-
+        <main>
              <!--Фильтр-->
            <section class="monopod-filter">
                <h2 class="visually-hidden">Фильтр для моноподов</h2>
@@ -288,50 +282,55 @@
 
        <!---------------------------Футер------------------------------->
        <footer class="page-footer">
-        <section class="footer-address">
-            <h2 class="visually-hidden">Контакты</h2>
-            <a href="" class="footer-logo-link">
-               <img class="footer-logo" src="" alt="Логотип магазина гаджетов «Device»">
-           </a>
-            <address class="footer-contacts-address">Санкт-Петербург, набережная реки Карповки, 5, литера П.</address>
-        </section>
+        <div class="page-footer-container">
+           <section class="footer-address">
+               <h2 class="visually-hidden">Контакты</h2>
+               <a href="" class="footer-logo-link">
+                   <img class="footer-logo" src="./image/logo/device-logo-footer.svg" width="145px" height="36px" alt="Логотип «Device»">
+               </a>
+               <address class="footer-contacts-address">Санкт-Петербург, набережная реки Карповки, 5, литера П.</address>
+           </section>
 
-        <section class="footer-services">
-            <ul class="footer-services-list">
-                <li class="footer-services-item">Доставка</li>
-                <li class="footer-services-item">Гарантия</li>
-                <li class="footer-services-item">Контакты</li>
-            </ul>
-
-            <!--Социальные сети-->
-           <div class="footer-social">
-               <h2 class="visually-hidden">Давай дружить</h2>
-               <ul class="footer-social-list">
-                   <li class="footer-social-item">
-                       <a class="button" href="#">
-                           <span class="visually-hidden">Фейсбук</span>
-                       </a>
-                   </li>
-                   <li class="footer-social-item">
-                       <a class="button" href="#">
-                           <span class="visually-hidden">Инстаграм</span>
-                       </a>
-                   </li>
-                   <li class="footer-social-item">
-                       <a class="button" href="#">
-                           <span class="visually-hidden">Твиттер</span>
-                       </a>
-                   </li>
+           <section class="footer-services">
+               <ul class="footer-services-list">
+                   <li class="footer-services-item">Доставка</li>
+                   <li class="footer-services-item">Гарантия</li>
+                   <li class="footer-services-item">Контакты</li>
                </ul>
-           </div>
-       </section>
 
-       <div class="footer-phone">
-           <a class="footer-contacts-phone" href="tel:+78128121212">Тел: +7 (812) 812-12-12</a>
+               <!--Социальные сети-->
+               <div class="footer-social">
+                   <h2 class="visually-hidden">Давай дружить</h2>
+                   <ul class="footer-social-list">
+                       <li class="footer-social-item">
+                           <a class="button" href="#">
+                               <span class="visually-hidden">Фейсбук</span>
+                               <img src="./image/social/facebook.svg" width="40px" height="40px" alt="Фейсбук">
+                           </a>
+                       </li>
+                       <li class="footer-social-item">
+                           <a class="button" href="#">
+                               <span class="visually-hidden">Инстаграм</span>
+                               <img src="./image/social/instagram.svg" width="40px" height="40px" alt="Инстаграм">
+                           </a>
+                       </li>
+                       <li class="footer-social-item">
+                           <a class="button" href="#">
+                               <span class="visually-hidden">Твиттер</span>
+                               <img src="./image/social/twitter.svg" width="40px" height="40px" alt="Твиттер">
+                           </a>
+                       </li>
+                   </ul>
+               </div>
+           </section>
+
+           <div class="footer-phone">
+               <a class="footer-contacts-phone" href="tel:+78128121212">Тел: +7 (812) 812-12-12</a>
+           </div>
+           <a class="htmlacademy-link" href="https://htmlacademy.ru/">
+               <img class="htmlacademy-image" src="./image/logo/htmlacademy.svg" width="115px" height="33px" alt="Эмблема html-academy">
+           </a>
        </div>
-       <a class="htmlacademy-link" href="https://htmlacademy.ru/">
-           <img class="htmlacademy-image" src="" alt="Эмблема html-academy">
-       </a>
     </footer>
        <!---------------------------/Футер------------------------------->
   </body>

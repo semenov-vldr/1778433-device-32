@@ -65,27 +65,16 @@ a {
 
 /* ------------------------------Header--------------------------------- */
 
-
 .page-header {
     width: 1160px;
     margin: 0 auto;
-    width: 1160px;
     padding-left: 60px;
     padding-right: 60px;
     padding-bottom: 167px;
     box-sizing: border-box;
     color: #000000;
-    background-color: #FFE17F;
     background: linear-gradient(to bottom, #ffffff 0 23px, #FFE17F 23px 323px);
 }
-
-/* .header-container {
-    margin: 0 auto;
-    width: 1160px;
-    padding-left: 60px;
-    padding-right: 60px;
-    box-sizing: border-box;
-} */
 
 /* блок поиска */
 .search-form {
@@ -181,7 +170,6 @@ a {
 
 .header-navigation-container {
     margin-left: auto;
-
 }
 
 .navigation-list {
@@ -223,13 +211,12 @@ a {
     flex-grow: 1;
 }
 
-/* ----Slider------ */
-
-.slider-main {
+.main-container {
     width: 1160px;
     margin: 0 auto;
 }
 
+/* ----Slider------ */
 
 .slider-item {
     display: flex;
@@ -294,11 +281,6 @@ a {
 
 /* ----Categories------ */
 
-.categories {
-    width: 1160px;
-    margin: 0 auto;
-}
-
 .categories-list {
     display: flex;
     margin: 0;
@@ -313,9 +295,7 @@ a {
     background-color: #FFE17F;
     align-items: center;
     justify-content: center;
-    
 }
-
 
 .categories-title {
     margin-top: 33px;
@@ -327,7 +307,6 @@ a {
     letter-spacing: -0.48px;
 }
 /* ----/Categories------ */
-
 
 
 /* ------Services -------*/
@@ -351,9 +330,7 @@ a {
 
 .services-container {
     display: flex;
-    width: 1160px;
-    min-height: 388px;
-    margin: 0 auto;
+    padding-bottom: 150px;
 }
 
 /* Левая колонка сервисных кнопок */
@@ -413,7 +390,6 @@ a {
 
 .about-the-company-delivery {
     display: flex;
-    width: 1160px;
     height: 100px;
     margin: 90px auto 97px auto;
     justify-content: space-between;
@@ -442,7 +418,6 @@ a {
 .about-the-company-container {
     display: flex;
     justify-content: space-between;
-    width: 1160px;
     margin: 0 auto;
     margin-bottom: 90px;
 }
@@ -516,7 +491,7 @@ a {
 }
 
 .newsletter-container {
-    width: 1160px;
+    /* width: 1160px; */
     margin: 0 auto;
     padding-bottom: 135px;
 }

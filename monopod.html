@@ -14,7 +14,8 @@
         <div class="user-menu"> 
             <div class="search"> <!--Поиск-->
                 <form class="search-form" action="#" method="GET"> 
-                    <input class="placeholder-search" type="search" placeholder="Поиск по сайту">
+                    <input class="input-search" type="search" placeholder="Поиск по сайту" id="before">
+                    <label for="before"></label>
                     <button class="search-button" type="submit">Найти</button>
                 </form>
             </div>
@@ -48,11 +49,12 @@
     <!--Навигация-->
         <nav class="navigation">
         <ul class="navigation-catalog">
-            <ul class="catalog">
+            <!-- relative -->
+            <ul class="catalog">       
                 <li class="catalog-item-main">
                     <a class="catalog-link" href="#">Каталог товаров</a>
 
-                <!-- <ul class="catalog-list">
+                <!-- <ul class="catalog-list"> absolute
                         <li class="catalog-item">
                             <a class="catalog-item-link" href="#">Виртуальная реальность</a>
                         </li>
@@ -262,6 +264,11 @@
                                 <a class="product-card-image-link" href="#">
                                     <img class="product-card-image" src="/image/catalog/product-1.jpg" width="360px" height="380px" alt="">
                                 </a>
+                                <div class="product-card-button">
+                                    <button class="button-yellow-dark-line-on-product-card" type="submit">Подробнее
+                                    </button>
+                                </div>
+
                                 <div class="product-card-title-and-price">
                                     <a class="product-card-title-link" href="#">
                                         <h3 class="product-card-title">Любительская селфи-палка</h3>

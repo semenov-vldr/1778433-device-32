@@ -79,7 +79,8 @@ a {
 
 /* Header страницы Монопод */
 .page-header-monopod {
-    padding: 20px 60px 40px 60px;
+    margin-top: 17px;
+    padding: 0px 60px 40px 60px;
     box-sizing: border-box;
     color: #000000;
     background: linear-gradient(#FFFFFF 23px, #FFE17F 23px);
@@ -92,48 +93,71 @@ a {
 
 /* Форма поиска (input) */
 .search-form {  
+    position: relative;
     display: flex;
     align-items: center;
 }
 
+#before + label {
+    position: relative;
+}
 /* Иконка "Лупа" */
-.search-form::before { 
+#before + label::before { 
     content: "";
-    background-image: url("/image/icons/search.svg");
+    position: absolute;
+    background-image: url("../image/icons/search.svg");
     background-repeat: no-repeat;
     width: 16px;
     height: 16px;
+    bottom: calc(50% - 8px);
+    right: 484px;
 }
 
 /* Поисковая строка */
-.placeholder-search {
-    width: 356px;
+.input-search {
+    width: 516px;
     height: 40px;
     background-color: rgba(0, 0, 0, 0);
     border: none;
 }
 
-.placeholder-search:focus{
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+.input-search:focus{
+    border-radius: 20px;
     outline: 2px solid #AF4FFF;
-    border: 0;
+}
+
+.input-search:active{
+    border-radius: 20px;
+    outline: 2px solid #000000;
 }
 
 /* Placeholder в поисковой строке */
-.placeholder-search::placeholder {
+.input-search::placeholder {
     font-size: 16px;
     line-height: 19px;
     color: rgba(0, 0, 0, 0.3);
-    padding-left: 20px;
 }
 
-.placeholder-search:hover::placeholder{
+.input-search:hover::placeholder{
     color: rgba(0, 0, 0, 0.6);
+}
+
+.input-search:not(:placeholder-shown) {
+    border-radius: 20px;
+    outline: 2px solid #000000;
+}
+
+/* Вводимый в поле поиска текст */
+.search-form input[type=search]{
+    padding-left: 56px;
+    padding-right: 170px;
+    font-size: 16px;
 }
 
 /* Кнопка "Найти" */
 .search-button {
+    position: absolute;
+    left: 360px;
     background: none;
     outline: none;
     font-size: 16px;
@@ -141,19 +165,20 @@ a {
     border: 2px solid #000000;
     border-bottom-right-radius: 20px;
     border-top-right-radius: 20px;
-    border-left: none;
+    border-left: 2px solid #000000;
     padding: 0 55px;
-    visibility: hidden;
-}
-
-.search-button:focus {
-    outline: none;
-    border: 2px solid #AF4FFF;
+    height: 44px;
+    cursor: pointer;
 }
 
 .search-button:hover {
     color: #FFFFFF;
     background-color: #000000;
+}
+
+.search-button:focus {
+    outline: none;
+    border: 2px solid #AF4FFF;
 }
 
 .search-button:active {
@@ -226,8 +251,10 @@ a {
 }
 
 .navigation-catalog {
+    position: relative;
     margin: 0;
     padding: 0;
+    padding-bottom: 24px;
 }
 
 .catalog {
@@ -249,6 +276,18 @@ a {
     font-weight: 800;
     letter-spacing: 4.2px;
     text-transform: uppercase;
+}
+
+/* Кнопка раскрывающая "Каталог товаров" */
+.catalog-link::after {
+    position: absolute;
+    content: "";
+    width: 50px;
+    height: 50px;
+    right: -70px;
+    bottom: 10px;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 0, 0, 0.2);
 }
 
 .catalog-link:focus {
@@ -297,12 +336,6 @@ a {
     padding-bottom: 4px;
 }
 
-.navigation-link:focus{
-    border-radius: 20px;
-    outline: 2px solid #AF4FFF;
-    outline-offset: 10px;
-}
-
 .navigation-link:hover:before {
     position: absolute;
     right: 0;
@@ -311,6 +344,12 @@ a {
     content: "";
     height: 2px;
     background-color: #000000;
+}
+
+.navigation-link:focus{
+    border-radius: 20px;
+    outline: 2px solid #AF4FFF;
+    outline-offset: 10px;
 }
 
 .navigation-link:active {
@@ -339,14 +378,66 @@ a {
 
 .slider-item {
     display: flex;
+    position: relative;
+    margin-bottom: 70px;
 }
 
+/* Кнопки вперед и назад на слайдере */
+.slider-button {
+    background-image: url("../image/slider/nav.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 20px;
+    height: 60px;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+}
+
+.slider-button:hover {
+    opacity: 0.7;
+}
+
+.slider-button:focus {
+    outline: 2px solid #AF4FFF;
+    outline-offset: 10px;
+    border-radius: 1px;
+}
+
+.slider-button:active{
+    opacity: 0.3;
+}
+
+/* Кнопка на слайдере "Назад" */
+.slider-prev {
+    position: absolute;
+    top: calc(50% - 30px);
+    left: 20px;
+}
+/* Кнопка на слайдере "Вперед" */
+.slider-next {
+    position: absolute;
+    transform: rotate(180deg);
+    top: calc(50% - 30px);
+    right: calc(50% + 40px);
+}
+
+.slider-image {
+    margin-top: -150px;
+    
+}
+
+/* Правая часть слайдера */
 .slider-info {
     margin-left: 40px;
+    margin-top: -25px;
 }
 
 /* Крупный текст на слайдере */
 .slider-text-big {
+    position: relative;
+    z-index: 1;
+    margin-top: 0;
     margin-bottom: 20px;
     font-family: "Raleway", sans-serif;
     font-size: 50px;
@@ -360,38 +451,62 @@ a {
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+/* Второй класс для задания ширины кнопки "Подробнее" в слайдере */
+.slider-button-info {
+    width: 220px;
+}
 
-/* Кнопки со светло-желтой линией */
+/* Кнопки со светло-желтой линией ("Подробнее" в слайдере, "Подробнее о нас", "Напишите нам") */
 .button-yellow-light-line {
+    display: block;
     font-family: "Raleway", sans-serif;
     text-transform: uppercase;
     color: #000000;
+    text-align: center;
     line-height: 21px;
     font-weight: 800;
-    padding-left: 40px;
-    padding-right: 40px;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0 7px, #FFE17F 7px 15px, rgba(0, 0, 0, 0) 15px 20px);
+    padding: 15px 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0 22px, #FFE17F 22px 30px, rgba(0, 0, 0, 0) 30px 51px);
     letter-spacing: 4.2px;
-}
-
-
-.button-yellow-light-line:focus {
-    outline: none;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0 7px, #AF4FFF 7px 15px, rgba(0, 0, 0, 0) 15px 20px);
 }
 
 .button-yellow-light-line:hover {
     background: #FFE17F;
-    padding: 15px 40px;
     box-sizing: border-box;
+}
+
+.button-yellow-light-line:focus {
+    outline: none;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0 22px, #AF4FFF 22px 30px, rgba(0, 0, 0, 0) 30px 51px);
 }
 
 .button-yellow-light-line:active {
     background: #FFE17F;
-    padding: 15px 40px;
     box-sizing: border-box;
     color: rgba(0, 0, 0, 0.3);
 }
+
+/* Блок кнопки "Подробнее" и навигации */
+.btn-and-pagination {
+    display: flex;
+    justify-content: space-between;
+}
+
+.slider-navigation {
+    margin-right: 60px;
+}
+
+.slider-navigation-list {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    vertical-align: top;
+}
+
+.slider-navigation-button {
+
+}
+
 
 /* Значение параметра на слайде */
 
@@ -413,6 +528,16 @@ a {
     font-size: 16px;
 }
 
+/* Крупная нумерация слайда */
+.slider-number {
+    position: absolute;
+    right: 50px;
+    top: -65px;
+    font-weight: 800;
+    color: #ffffff;
+    font-size: 180px;
+}
+
 /* ----/Slider------ */
 
 
@@ -430,6 +555,14 @@ a {
     width: 160px;
 }
 
+.categories-item-link {
+    color: #000000;
+}
+
+.categories-item-link:focus {
+    color: #AF4FFF;
+}
+
 /* Желтые квадраты на фоне категорий */
 .categories-item-rect {
     display: flex;
@@ -439,8 +572,13 @@ a {
     justify-content: center;
 }
 
-.categories-item-rect:hover {
+.categories-item-link:hover .categories-item-rect {
     background-color: #FFC700;
+}
+
+.categories-item-link:focus .categories-item-rect {
+    border: 0;
+    outline: 5px solid #AF4FFF;
 }
 
 .categories-item:active .categories-item-image {
@@ -454,8 +592,13 @@ a {
     font-weight: 800;
     line-height: 24px;
     font-size: 18px; 
-    color: #000000;
+    color: inherit;
     letter-spacing: -0.48px;
+}
+
+.categories-title:focus {
+    color: #AF4FFF;
+    border: 0;
 }
 
 .categories-title:active {
@@ -467,29 +610,31 @@ a {
 
 /* ------Services -------*/
 
-/* Кнопки с темно-желтой линией */
+/* Кнопки с темно-желтой линией  (Доставка, Гарантия, Кредит) */
 .button-yellow-dark-line {
+    display: block;
+    width: 160px;
     font-family: "Raleway", sans-serif;
     text-transform: uppercase;
     color: #000000;
+    text-align: center;
     border: 0;
-    padding-left: 17px;
-    padding-right: 17px;
     box-sizing: border-box;
+    padding: 10px 0;
     line-height: 21px;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0 7px, #FFC700 7px 15px, rgba(0, 0, 0, 0) 15px 20px);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0 16px, #FFC700 16px 24px, rgba(0, 0, 0, 0) 24px 41px);
     letter-spacing: 4.2px;
-}
-
-.button-yellow-dark-line:focus {
-    outline: none;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0 7px, #AF4FFF 7px 15px, rgba(0, 0, 0, 0) 15px 20px);
+    cursor: pointer;
 }
 
 .button-yellow-dark-line:hover {
     background: #FFC700;
-    padding: 10px 17px;
     box-sizing: border-box;
+}
+
+.button-yellow-dark-line:focus {
+    outline: none;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0 16px, #AF4FFF 16px 24px, rgba(0, 0, 0, 0) 24px 41px);
 }
 
 .button-yellow-dark-line:active {
@@ -516,7 +661,7 @@ a {
 .services-button-column {
     width: 280px;
     box-sizing: border-box;
-    margin-top: 90px;
+    margin-top: 80px;
 }
 
 .services-list {
@@ -573,21 +718,18 @@ a {
 
 .about-the-company-delivery {
     display: flex;
+    width: 100%;
     align-items: center;
     justify-content: space-between;
-    
 }
 
-.about-the-company-delivery-container { /* Не получается сделать нормально этот блок с focus */
+.about-the-company-delivery-container {
     display: flex;
     height: auto;
     margin: 90px auto 97px auto;
     justify-content: space-between;
+    align-self: center;
     background-color: #F0F0F0;  
-}
-
-.about-the-company-delivery:focus {
-    outline: 5px solid #AF4FFF;
 }
 
 .about-the-company-delivery:hover .about-the-company-rect {
@@ -612,22 +754,40 @@ a {
 }
 
 .about-the-company-delivery-text {
+   display: flex;
+   align-items: center;
     padding: 0 30px;
     font-family: "Raleway", sans-serif;
     font-weight: 800;
     font-size: 20px;
-    line-height: 23px;
+    /* line-height: 100px; */
     letter-spacing: 4.6px;
     color: #000000;
 } 
 
+/* Кнопка доп. информации */
+.info {
+    margin-right: 33px;
+    align-self: center;
+    text-align: center;
+    line-height: 40px;
+    color: rgba(0, 0, 0, 0.5);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(220, 220, 220, 0.5);
+}
+
+.info:hover {
+    color: #000000;
+}
+
+/* "О нас" и "Контакты" */
 .about-the-company-container {
     display: flex;
     justify-content: space-between;
     margin-bottom: 90px;
 }
-
-/* О компании */
 
 .about-us-decore-line {
     width: 80px;
@@ -674,6 +834,7 @@ a {
     margin-bottom: 20px;
     list-style-type: disc;
     color: #FFC700;
+    list-style-position: inside;
 }
 
 .transport-company-item:last-child {
@@ -714,6 +875,11 @@ a {
 
 .working-hours {
     margin-bottom: 70px;
+}
+
+/* Кнопки "Подробнее о нас" и "Напишите нам" */
+.button-about-us {
+    width: 259px;
 }
 
 /* ------/About-the-company -------*/
@@ -772,13 +938,13 @@ a {
     color: #444444;
 }
 
+.field:hover {
+    border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+}
+
 .field:focus {
     outline: none;
     background-color: #DCDCDC;
-}
-
-.field:hover {
-    border-bottom: 3px solid rgba(0, 0, 0, 0.2);
 }
 
 .field:valid {
@@ -817,14 +983,14 @@ a {
     cursor: pointer;
 }
 
-.newsletter-button:focus {
-    outline: none;
-    border: 3px solid #AF4FFF;
-}
-
 .newsletter-button:hover {
     background-color: #000000;
     color: #FFFFFF;
+}
+
+.newsletter-button:focus {
+    outline: none;
+    border: 3px solid #AF4FFF;
 }
 
 .newsletter-button:active {
@@ -836,6 +1002,15 @@ a {
     margin-left: auto;
 }
 
+.newsletter-item::before {
+    content: "";
+    background-image: url(../image/newsletter/free.svg);
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 21px;
+}
 
 /* ------/Newsletter -------*/
 
@@ -918,16 +1093,17 @@ a {
     color: #FFC700;
 }
 
+.footer-services-link:focus {
+    outline: 2px solid #AF4FFF;
+    box-sizing: border-box;
+    border-radius: 25px;
+    outline-offset: 15px;
+}
+
 .footer-services-link:active {
     color: #FFC700;
     opacity: 0.3;
 }
-
-/* Телефон */
-.footer-contacts-phone {
-    font-size: 16px;
-    color: #ffffff;
-} 
 
 /* Нижний блок в футере */
 
@@ -964,6 +1140,16 @@ a {
     fill-opacity: 1;
 }
 
+.button .social-link circle:focus{ /* Доделать focus для соцсетей */
+    fill-opacity: 0; 
+    outline: 5px solid #AF4FFF; 
+    border-radius: 50%;
+}
+
+.social-link:focus path {
+    fill: #ffffff;
+}
+
 .social-link:active circle{
     fill: #FFC700;
     fill-opacity: 1;
@@ -975,8 +1161,21 @@ a {
 }
 
 /* Номер телефона в футере */
+
+.footer-contacts-phone {
+    font-size: 16px;
+    color: #ffffff;
+} 
+
 .footer-contacts-phone:hover {
     color: #FFC700;
+}
+
+.footer-contacts-phone:focus {
+    outline: 2px solid #AF4FFF;
+    box-sizing: border-box;
+    border-radius: 25px;
+    outline-offset: 15px;
 }
 
 .footer-contacts-phone:active {
@@ -987,6 +1186,13 @@ a {
 /* Ссылка на Htmlacademy */
 .htmlacademy-icon:hover path {
     fill: #FFFFFF;
+}
+
+.htmlacademy-link:focus {
+    outline: 2px solid #AF4FFF;
+    box-sizing: border-box;
+    border-radius: 10px;
+    outline-offset: 10px;
 }
 
 .htmlacademy-icon:active path{
@@ -1033,6 +1239,16 @@ a {
 
 .breadcrumbs-link {
     color: inherit;
+}
+
+.breadcrumbs-link:hover {
+    color: #000000;
+}
+
+.breadcrumbs-link:focus {
+    border: 0;
+    outline: 5px solid #AF4FFF;
+    outline-offset: 5px;
 }
 
 .header-filter-container {
@@ -1089,8 +1305,22 @@ a {
 }
 
 .select-control {
+    padding: 7px 15px;
     border: 0;
     background-color: rgba(0, 0, 0, 0);
+}
+
+.select-control:hover {
+    opacity: 0.6;
+}
+
+.select-control:focus {
+    border: 0;
+    outline: 5px solid #AF4FFF;
+}
+
+.select-control:active {
+    opacity: 0.3;
 }
 
 .arrow-sorting {
@@ -1104,6 +1334,11 @@ a {
 .arrow-down-image { 
     margin-left: 20px;
     transform: rotate(180deg);
+}
+
+.arrow-sorting a:focus {
+    border: 0;
+    outline: 5px solid #AF4FFF;
 }
 
 /* Фон каталога */
@@ -1193,17 +1428,58 @@ a {
     padding: 0;
 }
 
-/* ----Пробуем эффект target------------- */
-.product-card-item {
+.product-card-image-link {
     display: block;
+}
+
+/* ----Пробный вариант всплывающей кнопки на карточке товаров------------- */
+.product-card-item {
     position: relative;
 }
 
+.button-yellow-dark-line-on-product-card {
+font-family: "Raleway", sans-serif;
+text-transform: uppercase;
+color: #000000;
+border: 0;
+font-size: 18px;
+padding: 0 15px;
+line-height: 21px;
+background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0 7px, #FFC700 7px 15px, rgba(0, 0, 0, 0) 15px 20px);
+letter-spacing: 4.2px;
+cursor: pointer;
+position: absolute;
+top: 180px;
+left: 90px;
+}
 
+.product-card-button {
+    display: flex;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 380px;
+    top: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.2);
+}
 
+.product-card-image-link:hover + .product-card-button {
+    z-index: 0;
+}
 
+.button-yellow-dark-line-on-product-card:hover {
+    background: #FFC700;
+    padding: 10px 15px;
+}
 
-/* ----Пробуем эффект target------------- */
+.button-yellow-dark-line-on-product-card:active {
+    color: rgba(0, 0, 0, 0.3)
+}
+
+/* ----/Пробный вариант всплывающей кнопки на карточке товаров------------- */
 
 .product-card-title-and-price {
     display: flex;

@@ -14,7 +14,8 @@
         <div class="user-menu"> 
             <div class="search"> <!--Поиск-->
                 <form class="search-form" action="#" method="GET"> 
-                    <input class="placeholder-search" type="search" placeholder="Поиск по сайту">
+                    <input class="input-search" type="search" placeholder="Поиск по сайту" id="before">
+                    <label for="before"></label>
                     <button class="search-button" type="submit">Найти</button>
                 </form>
             </div>
@@ -48,11 +49,12 @@
     <!--Навигация-->
         <nav class="navigation">
         <ul class="navigation-catalog">
-            <ul class="catalog">
+            <!-- relative -->
+            <ul class="catalog">       
                 <li class="catalog-item-main">
                     <a class="catalog-link" href="#">Каталог товаров</a>
 
-                <!-- <ul class="catalog-list">
+                <!-- <ul class="catalog-list"> absolute
                         <li class="catalog-item">
                             <a class="catalog-item-link" href="#">Виртуальная реальность</a>
                         </li>
@@ -101,13 +103,45 @@
             <!--Слайд квадракоптер -->
             <section class="slider-main center">
                 <div class="slider-item">
-                    <img class="slider-image" src="./image/slider/slider-1.jpg" width="560px" height="560px" alt="Квадракоптер">
+                    <img class="slider-image" src="./image/slider/slider-1.png" width="560px" height="560px" alt="Квадракоптер">
+                    
+                      <!--Кнопки вперед/назад-->
+                      <button class="slider-button slider-prev" type="button">
+                        <span class="visually-hidden">Предыдущий слайд</span>
+                    </button>
+                    <button class="slider-button slider-next" type="button">
+                        <span class="visually-hidden">Следующий слайд</span>
+                    </button>
+
                     <div class="slider-info">
                         <h2 class="slider-text-big">Порхает как бабочка, жалит как пчела!
                         </h2>
                         <p class="slider-text">Этот обычный, на первый взгляд, квадрокоптер оснащен мощным лазером, замаскированным под стандартную камеру.
                         </p>
-                        <a href="#" class="button-yellow-light-line slider-button">Подробнее</a>
+                        <div class="btn-and-pagination">
+                            <a href="#" class="button-yellow-light-line slider-button-info">Подробнее</a>
+
+                            <div class="slider-navigation">
+                                <ul class="slider-navigation-list">
+                                    <li class="slider-navigation-item">
+                                        <button class="slider-navigation-button slider-navigation-button-current" type="button">
+                                            <span class="visually-hidden">1 слайд</span>
+                                        </button>
+                                    </li>
+                                    <li class="slider-navigation-item">
+                                        <button class="slider-navigation-button slider-navigation-button-current" type="button">
+                                            <span class="visually-hidden">2 слайд</span>
+                                        </button>
+                                    </li>
+                                    <li class="slider-navigation-item">
+                                        <button class="slider-navigation-button slider-navigation-button-current" type="button">
+                                            <span class="visually-hidden">3 слайд</span>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
 
                         <ul class="parameter-list">
                             <li class="parameter-value">800 м
@@ -118,12 +152,13 @@
                             </li>
                         </ul>
                     </div>
+                    <span class="slider-number">01</span>
                 </div>
                 <!--/Слайд квадракоптер -->
 
                 <!--Слайд фитнес-браслет-->
                 <!-- <div class="slider-item">
-                    <img class="slider-image" src="./image/slider/slider-2.jpg" width="560px" height="560px" alt="Фитнес-браслет">
+                    <img class="slider-image" src="./image/slider/slider-2.png" width="560px" height="560px" alt="Фитнес-браслет">
                     <div class="slider-info">
                         <h2 class="slider-text-big">Худеем <br> правильно!</h2>
                         <p class="slider-text">Мотивирующие фитнес-браслеты помогут найти в себе силы не пропускать занятия и соблюдать диету.</p>
@@ -140,7 +175,7 @@
 
                 <!--Слайд селфи-палка-->
                 <!-- <div class="slider-item">
-                    <img class="slider-image" src="./image/slider/slider-3.jpg" width="560px" height="560px" alt="Селфи-палка">
+                    <img class="slider-image" src="./image/slider/slider-3.png" width="560px" height="560px" alt="Селфи-палка">
                     <div class="slider-info">
                         <h2 class="slider-text-big">Делай селфи, <br> как Бен Стиллер! </h2>
                         <p class="slider-text">Самая длинная палка для селфи доступна в нашем магазине. Восемь (Восемь, Карл!) метров длиной и весом всего 5 кг.</p>
@@ -160,34 +195,28 @@
                     </div>
                 </div> -->
                 <!--/Слайд селфи-палка-->
-
-                <div> <!--Кнопки вперед/назад-->
-                    <button class="slider-button slider-prev" type="button">
-                        <span class="visually-hidden">Предыдущий слайд</span>
-                    </button>
-                    <button class="slider-button slider-next" type="button">
-                        <span class="visually-hidden">Следующий слайд</span>
-                    </button>
-                </div>
+            
 
                 <!--Пагинация-->
-                    <ul class="slider-navigation-list">
-                        <li class="slider-navigation-item">
-                            <button class="slider-navigation-button slider-navigation-button-current" type="button">
-                                <span class="visually-hidden">1 слайд</span>
-                            </button>
-                        </li>
-                        <li class="slider-navigation-item">
-                            <button class="slider-navigation-button slider-navigation-button-current" type="button">
-                                <span class="visually-hidden">2 слайд</span>
-                            </button>
-                        </li>
-                        <li class="slider-navigation-item">
-                            <button class="slider-navigation-button slider-navigation-button-current" type="button">
-                                <span class="visually-hidden">3 слайд</span>
-                            </button>
-                        </li>
-                    </ul>
+                    <!-- <div class="slider-navigation">
+                        <ul class="slider-navigation-list">
+                            <li class="slider-navigation-item">
+                                <button class="slider-navigation-button slider-navigation-button-current" type="button">
+                                    <span class="visually-hidden">1 слайд</span>
+                                </button>
+                            </li>
+                            <li class="slider-navigation-item">
+                                <button class="slider-navigation-button slider-navigation-button-current" type="button">
+                                    <span class="visually-hidden">2 слайд</span>
+                                </button>
+                            </li>
+                            <li class="slider-navigation-item">
+                                <button class="slider-navigation-button slider-navigation-button-current" type="button">
+                                    <span class="visually-hidden">3 слайд</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </div> -->
             </section>
             <!----------------------/Слайдер ----------------------------->
 
@@ -290,17 +319,17 @@
 
             <!-----------------------О компании----------------------------->
             <section class="about-the-company">
-                <a href="#" class="about-the-company-delivery">
+                <div class="about-the-company-delivery">
                     <div class="about-the-company-delivery-container center">
                         <div class="about-the-company-rect">
                             <img class="about-the-company-delivery-image" src="./image/services/delivery-rare-order.svg" width="47px" height="31px" alt="Доставка">
                         </div>
                         <span class="about-the-company-delivery-text">Доставим редкий товар под заказ</span>
-                        <a class="info" href="#">
+                        <a class="info" href="#">i
                             <span class="visually-hidden">Посмотреть доп. информацию</span>
                         </a>
                     </div>
-                </a>
+                </div>
                 <!--О нас-->
                 <div class="about-the-company-container center">
                     <div class="about-us">
@@ -313,7 +342,7 @@
                             <li class="transport-company-item"> <span class="transport-company-name">СДИК</span> </li>
                             <li class="transport-company-item"> <span class="transport-company-name">ТоксБерри</span> </li>
                         </ul>
-                            <a class="button-more-about-us button-yellow-light-line" href="#">Подробнее о нас</a>
+                            <a class="button-about-us button-yellow-light-line" href="#">Подробнее о нас</a>
                     </div>
                     <!--О нас-->
 
@@ -327,7 +356,7 @@
                         <a class="contacts-phone" href="tel:+78128121212">+7 (812) 812-12-12</a>
                         <h3 class="contacts-subtitle-second">Время работы</h3>
                         <p class="working-hours">пн—пт: с 10:00 до 22:00 <br> cб—вс: с 10:00 до 19:00</p>
-                        <a class="button-contacts button-yellow-light-line" href="#">Напишите нам</a>
+                        <a class="button-about-us button-yellow-light-line" href="#">Напишите нам</a>
                     </div>
                 </div>
                 <!--/Контакты-->
@@ -347,7 +376,6 @@
                         <input class="field" type="email" placeholder="Ваш e-mail" name="newsletter-email" id="newsletter-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
                         <button class="newsletter-button" type="submit">Подписаться</button>
                         <div class="newsletter-item">
-                            <img class="newsletter-item-image" src="./image/newsletter/free.svg" alt="Это бесплатно">
                             <span class="newsletter-item-text">Это бесплатно</span>
                         </div>
                     </form>

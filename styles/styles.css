@@ -54,6 +54,11 @@ a {
     text-decoration: none;
 }
 
+/* Плавность кнопок и ссылок */
+a, button {
+    transition: all 0.2s;
+}
+
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -88,23 +93,19 @@ a {
 
 /* блок поиска */
 .search {
+    position: relative;
     width: 516px;
 }
 
 /* Форма поиска (input) */
 .search-form {  
-    position: relative;
     display: flex;
     align-items: center;
 }
 
-#before + label {
-    position: relative;
-}
-/* Иконка "Лупа" */
-#before + label::before { 
-    content: "";
+.search::before {
     position: absolute;
+    content: "";
     background-image: url("../image/icons/search.svg");
     background-repeat: no-repeat;
     width: 16px;
@@ -115,6 +116,7 @@ a {
 
 /* Поисковая строка */
 .input-search {
+    position: relative;
     width: 516px;
     height: 40px;
     background-color: rgba(0, 0, 0, 0);
@@ -129,6 +131,14 @@ a {
 .input-search:active{
     border-radius: 20px;
     outline: 2px solid #000000;
+}
+
+/* Скрыть крестик в инпуте */
+.input-search::-webkit-search-decoration, 
+.input-search::-webkit-search-cancel-button, 
+.input-search::-webkit-search-results-button, 
+.input-search::-webkit-search-results-decoration { 
+    visibility: hidden; 
 }
 
 /* Placeholder в поисковой строке */
@@ -147,6 +157,10 @@ a {
     outline: 2px solid #000000;
 }
 
+.input-search:not(:placeholder-shown) + .search-button {
+    display: block;
+}
+
 /* Вводимый в поле поиска текст */
 .search-form input[type=search]{
     padding-left: 56px;
@@ -162,13 +176,14 @@ a {
     outline: none;
     font-size: 16px;
     line-height: 19px;
-    border: 2px solid #000000;
+    border: 0;
     border-bottom-right-radius: 20px;
     border-top-right-radius: 20px;
     border-left: 2px solid #000000;
     padding: 0 55px;
     height: 44px;
     cursor: pointer;
+    display: none;
 }
 
 .search-button:hover {
@@ -177,12 +192,14 @@ a {
 }
 
 .search-button:focus {
-    outline: none;
-    border: 2px solid #AF4FFF;
+    border-left: 2px solid transparent;
+    outline: 2px solid #AF4FFF;
 }
 
 .search-button:active {
     color: rgba(255, 255, 255, 0.3);
+    outline: 2px solid #000000;
+    
 }
 
 /* Блок верхнего меню в шапке */
@@ -207,6 +224,7 @@ a {
 }
 
 .header-icon-item {
+    position: relative;
     display: flex;
 }
 
@@ -241,6 +259,37 @@ a {
 
 .basket {
     margin-left: 40px;
+}
+
+/* Popover корзины */
+.popover {
+    position: absolute;
+    top: 32px;
+    right: -85px;
+    z-index: 1;
+    box-sizing: border-box;
+    width: 320px;
+    min-height: 218px;
+    padding: 20px;
+    font-size: 16px;
+    line-height: 20px;
+    color: #ffffff;
+    background-color: #000000;
+    box-shadow: 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.popover::before {
+    content: "";
+    position: absolute;
+    background-image: url(../image/icons/triangle-popover.svg);
+    width: 14px;
+    height: 6px;
+    left: 140px;
+    top: -6px;
+}
+
+.button-del {
+    padding: 0;
 }
 
 /* Каталог товаров и сервисные ссылки */
@@ -356,6 +405,10 @@ a {
     opacity: 0.3;
 }
 
+/* Появление выпадающего каталога при фокусе */
+.catalog-item-main:focus-within .catalog-list {
+    display: block;
+}
 
 /* Ссылки внутри раскрывающегося меню каталога товаров */
 .catalog-item-link {
@@ -411,20 +464,19 @@ a {
 /* Кнопка на слайдере "Назад" */
 .slider-prev {
     position: absolute;
-    top: calc(50% - 30px);
+    top: 100px;
     left: 20px;
 }
 /* Кнопка на слайдере "Вперед" */
 .slider-next {
     position: absolute;
     transform: rotate(180deg);
-    top: calc(50% - 30px);
+    top: 100px;
     right: calc(50% + 40px);
 }
 
 .slider-image {
     margin-top: -150px;
-    
 }
 
 /* Правая часть слайдера */
@@ -732,16 +784,25 @@ a {
     background-color: #F0F0F0;  
 }
 
-.about-the-company-delivery:hover .about-the-company-rect {
+.about-the-company-delivery-container:focus {
+    border: 0;
+    outline: 5px solid #AF4FFF;
+}
+
+.about-the-company-delivery-container:hover .about-the-company-rect {
     background-color: #FFC700;
 }
 
-.about-the-company-delivery:active {
+.about-the-company-delivery-container:active .about-the-company-rect {
+    background-color: #FFC700;
+}
+
+.about-the-company-delivery-container:active .about-the-company-rect img {
     opacity: 0.3;
 }
 
-.about-the-company-delivery:active .about-the-company-rect {
-    background-color: #FFC700;
+.about-the-company-delivery-container:active .about-the-company-delivery-text {
+    opacity: 0.3;
 }
 
 .about-the-company-rect {
@@ -760,25 +821,24 @@ a {
     font-family: "Raleway", sans-serif;
     font-weight: 800;
     font-size: 20px;
-    /* line-height: 100px; */
     letter-spacing: 4.6px;
     color: #000000;
 } 
 
-/* Кнопка доп. информации */
+/* Иконка доп. информации */
 .info {
     margin-right: 33px;
     align-self: center;
     text-align: center;
     line-height: 40px;
-    color: rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.4);
     width: 40px;
     height: 40px;
     border-radius: 50%;
     background-color: rgba(220, 220, 220, 0.5);
 }
 
-.info:hover {
+.about-the-company-delivery-container:hover .info {
     color: #000000;
 }
 
@@ -1073,12 +1133,6 @@ a {
     padding-bottom: 4px;
 } 
 
-.footer-services-link:focus {
-    /* outline: 2px solid #AF4FFF;
-    border-radius: 25px;
-    padding: 15px 20px; */
-}
-
 .footer-services-link:hover::before {
     content: "";
     position: absolute;
@@ -1135,18 +1189,26 @@ a {
     margin-right: 0;
 }
 
+.social-link {
+    border-radius: 50%;
+}
+
 .social-link:hover circle {
     fill: #FFC700;
     fill-opacity: 1;
 }
 
-.button .social-link circle:focus{ /* Доделать focus для соцсетей */
+.button-social {
+    outline: 0;
+}
+
+.button-social:focus .social-link circle{
     fill-opacity: 0; 
     outline: 5px solid #AF4FFF; 
     border-radius: 50%;
 }
 
-.social-link:focus path {
+.button-social:focus .social-link path {
     fill: #ffffff;
 }
 
@@ -1304,6 +1366,7 @@ a {
     color: #000000;
 }
 
+/* Выпадающий список сортировки */
 .select-control {
     padding: 7px 15px;
     border: 0;
@@ -1327,12 +1390,15 @@ a {
     margin-left: auto;
 }
 
-.arrow-up {
+.arrow-up-image {
     opacity: 0.2;
 }
 
-.arrow-down-image { 
+.arrow-down { 
     margin-left: 20px;
+}
+
+.arrow-down-image {
     transform: rotate(180deg);
 }
 
@@ -1364,45 +1430,184 @@ a {
 }
 
 .monopod-filter-group {
+    position: relative;
     padding: 0;
     margin: 0;
+    margin-bottom: 57px;
+    border: 0;
+}
+
+.monopod-filter-group:first-child {
+    margin-top: 83px;
+}
+
+.monopod-filter-group::before {
+    position: absolute;
+    content: "";
+    width: 200px;
+    height: 2px;
+    top: -32px;
+    left: 0;
+    background-color: #000000;
 }
 
 .monopod-filter-title {
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: -0.4px;
+    padding: 0;
+    color: #000000;
+}
+
+.range {
+}
+
+.range-scale {
+    position: relative;
+    height: 2px;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    background-color: #DCDCDC;
+}
+
+.range-bar {
+    position: absolute;
+    height: 2px;
+    background-color: #000000;
 }
 
 .range-toggle {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #000000;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.range-toggle:focus {
+    outline: 0;
+    border: 2px solid #AF4FFF;
+}
+
+.range-toggle:active {
+    background-color: #000000;
 }
 
 .toggle-min {
+    top: -9px;
 }
 
 .toggle-max {
+    right: -9px;
+    top: -9px;
+}
+
+.range-wrapper-inputs {
+    display: flex;
 }
 
 .monopod-filter-label {
+    display: flex;
+    margin-right: 5px;
 }
 
-.monopod-filter-input {
-    background-color: rgba(0, 0, 0, 0);
+.monopod-range-input {
+    width: 50px;
+    padding: 0 2px;
+    font: inherit;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    appearance: textfield;
+}
+
+.monopod-range-input::-webkit-outer-spin-button,
+.monopod-range-input::-webkit-inner-spin-button {
+    appearance: none;
+    margin: 0;
 }
 
 .monopod-filter-list {
+    margin: 28px 0 0 0;
+    padding: 0;
 }
 
 .monopod-filter-item {
 }
 
-.color {
+/* Label --> Checkbox (или radio) + наименование */
+.control {
+   position: relative;
+   display: block;
+   padding-left: 37px; 
 }
 
-.color-input {
+/* окно для checkbox */
+.control-mark {
+    position: absolute;
+    top: 4px;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    cursor: pointer;
+}
+/* Галочка в чекбоксе */
+.check {
+    position: absolute;
+    left: 5px;
+    top: 9px;
+    visibility: hidden;
 }
 
-.color-mark {
+.control-input[type="checkbox"] ~ span:active {
+    opacity: 0.2;
 }
 
-.color-label {
+.control-input[type="checkbox"]:checked ~ svg:active {
+    opacity: 0.2;
+}
+
+.control-input[type="checkbox"]:checked + .control-mark {
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border: 2px solid #000000;
+}
+
+.control-input[type="checkbox"]:checked ~ svg {
+    visibility: visible;
+}
+
+.control-input[type="checkbox"]:checked ~ span:hover {
+    opacity: 0.5;
+}
+
+.control-input[type="checkbox"]:checked ~ span:active {
+    opacity: 0.2;
+}
+
+/* Radio */
+.control-input[type="radio"] + .control-mark {
+    border-radius: 50%;
+}
+
+.control-input[type="radio"]:checked + .control-mark::before {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #000000;
+}
+
+/* Подпись к checkbox и radio */
+.control-label {
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
 }
 
 .monopod-filter-button {
@@ -1428,29 +1633,34 @@ a {
     padding: 0;
 }
 
-.product-card-image-link {
-    display: block;
-}
-
-/* ----Пробный вариант всплывающей кнопки на карточке товаров------------- */
 .product-card-item {
     position: relative;
 }
 
+.product-card-image-link:focus {
+    border: 0;
+    outline: 5px solid #AF4FFF;
+}
+
+.product-card-title-link:focus {
+    color: red;
+}
+
+/* Всплывающая кнопка на карточке товара */
 .button-yellow-dark-line-on-product-card {
-font-family: "Raleway", sans-serif;
-text-transform: uppercase;
-color: #000000;
-border: 0;
-font-size: 18px;
-padding: 0 15px;
-line-height: 21px;
-background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0 7px, #FFC700 7px 15px, rgba(0, 0, 0, 0) 15px 20px);
-letter-spacing: 4.2px;
-cursor: pointer;
-position: absolute;
-top: 180px;
-left: 90px;
+    position: absolute;
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    color: #000000;
+    border: 0;
+    font-size: 18px;
+    padding: 10px 15px;
+    line-height: 21px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0 16px, #FFC700 16px 24px, rgba(0, 0, 0, 0) 24px 41px);
+    letter-spacing: 4.2px;
+    cursor: pointer;
+    top: 180px;
+    left: 90px;
 }
 
 .product-card-button {
@@ -1463,24 +1673,22 @@ left: 90px;
     left: 0;
     align-items: center;
     justify-content: center;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.4);
 }
 
-.product-card-image-link:hover + .product-card-button {
+.product-card-item:hover .product-card-button {
     z-index: 0;
 }
 
 .button-yellow-dark-line-on-product-card:hover {
     background: #FFC700;
-    padding: 10px 15px;
 }
 
 .button-yellow-dark-line-on-product-card:active {
     color: rgba(0, 0, 0, 0.3)
 }
 
-/* ----/Пробный вариант всплывающей кнопки на карточке товаров------------- */
-
+/* Наименование и цена на карточке товара */
 .product-card-title-and-price {
     display: flex;
     margin-top: 30px;

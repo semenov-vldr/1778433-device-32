@@ -13,7 +13,7 @@
         </a>
         <div class="user-menu"> 
             <div class="search"> <!--Поиск-->
-                <form class="search-form" action="#" method="GET"> 
+                <form class="search-form" action="https://echo.htmlacademy.ru/" method="post"> 
                     <input class="input-search" type="search" placeholder="Поиск по сайту" id="before">
                     <label for="before"></label>
                     <button class="search-button" type="submit">Найти</button>
@@ -158,24 +158,33 @@
                         <!-- Фильтр -->
                         <div class="monopods-filter">
                             <h2 class="visually-hidden">Фильтр для моноподов</h2>
-                                <form class="monopod-filter-form" action="https://echo.htmlacademy.ru/" method="GET">
+                                <form class="monopod-filter-form" action="https://echo.htmlacademy.ru/" method="get">
                                 <!--Фильтр стоимости-->
                                 <fieldset class="monopod-filter-group">
                                     <legend class="monopod-filter-title">Стоимость</legend>
-                                    <button class="range-toggle toggle-min" type="button">
-                                        <span class="visually-hidden">Изменить минимальную цену</span>
-                                    </button>
-                                    <button class="range-toggle toggle-max" type="button">
-                                        <span class="visually-hidden">Изменить максимальную цену</span>
-                                    </button>
 
-                                    <label class="monopod-filter-label">
-                                        от <input class="monopod-filter-input" type="number" name="min-price">
-                                    </label>
+                                    <div class="range">
+                                        <div class="range-scale">
+                                            <div class="range-bar" style="left: 0; width: 119px">
+                                                <button class="range-toggle toggle-min" type="button">
+                                                    <span class="visually-hidden">Изменить минимальную цену</span>
+                                                </button>
+                                                <button class="range-toggle toggle-max" type="button">
+                                                    <span class="visually-hidden">Изменить максимальную цену</span>
+                                                </button>
+                                            </div>
+                                        </div>
 
-                                    <label class="monopod-filter-label">
-                                        до <input class="monopod-filter-input" type="number" name="max-price">
-                                    </label>
+                                        <div class="range-wrapper-inputs">
+                                            <label class="monopod-filter-label">
+                                                от <input class="monopod-range-input" type="number" value="0" name="min-price">
+                                            </label>
+
+                                            <label class="monopod-filter-label">
+                                                до <input class="monopod-range-input" type="number" value="5000" name="max-price">
+                                            </label>
+                                        </div>
+                                    </div>
                                 </fieldset>
                                 <!--/Фильтр стоимости-->
 
@@ -185,42 +194,57 @@
 
                                     <ul class="monopod-filter-list">
                                         <li class="monopod-filter-item">
-                                            <label class="color">
-                                                <input class="visually-hidden color-input" type="checkbox" name="Черный" checked>
-                                                <span class="color-mark"></span>
-                                                <span class="color-label">Черный</span>
+                                            <label class="control">
+                                                <input class="visually-hidden control-input" type="checkbox" name="Черный" checked>
+                                                <span class="control-mark"></span>
+                                                <svg class="check" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+                                                    <path d="M10 0L3.1 6.6L0 3.6V6.9L3.2 10L10 3.3V0Z" fill="black"/>
+                                                    </svg>
+                                                <span class="control-label">Черный</span>
                                             </label>
                                         </li>
 
                                         <li class="monopod-filter-item">
-                                            <label class="color">
-                                                <input class="visually-hidden color-input" type="checkbox" name="Белый" checked>
-                                                <span class="color-mark"></span>
-                                                <span class="color-label">Белый</span>
+                                            <label class="control">
+                                                <input class="visually-hidden control-input" type="checkbox" name="Белый" checked>
+                                                <span class="control-mark"></span>
+                                                <svg class="check" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+                                                    <path d="M10 0L3.1 6.6L0 3.6V6.9L3.2 10L10 3.3V0Z" fill="black"/>
+                                                    </svg>
+                                                <span class="control-label">Белый</span>
                                             </label>
                                         </li>
 
                                         <li class="monopod-filter-item">
-                                            <label class="color">
-                                                <input class="visually-hidden color-input" type="checkbox" name="Синий">
-                                                <span class="color-mark"></span>
-                                                <span class="color-label">Синий</span>
+                                            <label class="control">
+                                                <input class="visually-hidden control-input" type="checkbox" name="Синий">
+                                                <span class="control-mark"></span>
+                                                <svg class="check" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+                                                    <path d="M10 0L3.1 6.6L0 3.6V6.9L3.2 10L10 3.3V0Z" fill="black"/>
+                                                    </svg>
+                                                <span class="control-label">Синий</span>
                                             </label>
                                         </li>
 
                                         <li class="monopod-filter-item">
-                                            <label class="color">
-                                                <input class="visually-hidden color-input" type="checkbox" name="Красный">
-                                                <span class="color-mark"></span>
-                                                <span class="color-label">Красный</span>
+                                            <label class="control">
+                                                <input class="visually-hidden control-input" type="checkbox" name="Красный">
+                                                <span class="control-mark"></span>
+                                                <svg class="check" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+                                                    <path d="M10 0L3.1 6.6L0 3.6V6.9L3.2 10L10 3.3V0Z" fill="black"/>
+                                                    </svg>
+                                                <span class="control-label">Красный</span>
                                             </label>
                                         </li>
 
                                         <li class="monopod-filter-item">
-                                            <label class="color">
-                                                <input class="visually-hidden color-input" type="checkbox" name="Розовый">
-                                                <span class="color-mark"></span>
-                                                <span class="color-label">Розовый</span>
+                                            <label class="control">
+                                                <input class="visually-hidden control-input" type="checkbox" name="Розовый">
+                                                <span class="control-mark"></span>
+                                                <svg class="check" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+                                                    <path d="M10 0L3.1 6.6L0 3.6V6.9L3.2 10L10 3.3V0Z" fill="black"/>
+                                                    </svg>
+                                                <span class="control-label">Розовый</span>
                                             </label>
                                         </li>
                                     </ul>
@@ -233,18 +257,18 @@
 
                                     <ul class="monopod-filter-list">
                                         <li class="monopod-filter-item">
-                                            <label class="color">
-                                                <input class="visually-hidden color-input" type="radio" name="bluetooth" value="have-bluetooth" checked>
-                                                <span class="color-mark"></span>
-                                                <span class="color-label">Есть</span>
+                                            <label class="control">
+                                                <input class="visually-hidden control-input" type="radio" name="bluetooth" value="have-bluetooth" checked>
+                                                <span class="control-mark"></span>
+                                                <span class="control-label">Есть</span>
                                             </label>
                                         </li>
 
                                         <li class="monopod-filter-item">
-                                            <label class="color">
-                                                <input class="visually-hidden color-input" type="radio" name="bluetooth" value="no-bluetooth">
-                                                <span class="color-mark"></span>
-                                                <span class="color-label">Нет</span>
+                                            <label class="control">
+                                                <input class="visually-hidden control-input" type="radio" name="bluetooth" value="no-bluetooth">
+                                                <span class="control-mark"></span>
+                                                <span class="control-label">Нет</span>
                                             </label>
                                         </li>
                                     </ul>
@@ -262,7 +286,7 @@
                             <ul class="product-card-list">
                                 <li class="product-card-item">
                                 <a class="product-card-image-link" href="#">
-                                    <img class="product-card-image" src="/image/catalog/product-1.jpg" width="360px" height="380px" alt="">
+                                    <img class="product-card-image" src="./image/catalog/product-1.jpg" width="360px" height="380px" alt="">
                                 </a>
                                 <div class="product-card-button">
                                     <button class="button-yellow-dark-line-on-product-card" type="submit">Подробнее
@@ -279,7 +303,7 @@
 
                                 <li class="product-card-item">
                                     <a class="product-card-image-link" href="#">
-                                        <img class="product-card-image" src="/image/catalog/product-2.jpg" width="360px" height="380px" alt="">
+                                        <img class="product-card-image" src="./image/catalog/product-2.jpg" width="360px" height="380px" alt="">
                                     </a>
                                     <div class="product-card-title-and-price">
                                         <a class="product-card-title-link" href="#">
@@ -291,7 +315,7 @@
 
                                 <li class="product-card-item">
                                     <a class="product-card-image-link" href="#">
-                                        <img class="product-card-image" src="/image/catalog/product-3.jpg" width="360px" height="380px" alt="">
+                                        <img class="product-card-image" src="./image/catalog/product-3.jpg" width="360px" height="380px" alt="">
                                     </a>
                                     <div class="product-card-title-and-price">
                                         <a class="product-card-title-link" href="#">
@@ -303,7 +327,7 @@
 
                                 <li class="product-card-item">
                                     <a class="product-card-image-link" href="#">
-                                        <img class="product-card-image" src="/image/catalog/product-4.jpg" width="360px" height="380px" alt="">
+                                        <img class="product-card-image" src="./image/catalog/product-4.jpg" width="360px" height="380px" alt="">
                                     </a>
                                     <div class="product-card-title-and-price">
                                         <a class="product-card-title-link" href="#">

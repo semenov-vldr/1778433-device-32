@@ -31,6 +31,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100%;
+    min-width: 1160px;
     font-family: "Rubik", sans-serif;
     font-weight: 400;
     font-size: 18px;
@@ -42,6 +43,11 @@ body {
 .center {
     width: 1160px;
     margin: 0 auto;
+}
+
+img {
+  max-width: 100%;
+  object-fit: contain;
 }
 
 /* У всех элементов списка уберем маркеры */
@@ -98,7 +104,7 @@ a, button {
 }
 
 /* Форма поиска (input) */
-.search-form {  
+.search-form {
     display: flex;
     align-items: center;
 }
@@ -134,11 +140,11 @@ a, button {
 }
 
 /* Скрыть крестик в инпуте */
-.input-search::-webkit-search-decoration, 
-.input-search::-webkit-search-cancel-button, 
-.input-search::-webkit-search-results-button, 
-.input-search::-webkit-search-results-decoration { 
-    visibility: hidden; 
+.input-search::-webkit-search-decoration,
+.input-search::-webkit-search-cancel-button,
+.input-search::-webkit-search-results-button,
+.input-search::-webkit-search-results-decoration {
+    visibility: hidden;
 }
 
 /* Placeholder в поисковой строке */
@@ -199,7 +205,7 @@ a, button {
 .search-button:active {
     color: rgba(255, 255, 255, 0.3);
     outline: 2px solid #000000;
-    
+
 }
 
 /* Блок верхнего меню в шапке */
@@ -213,10 +219,11 @@ a, button {
 .header-icon-container {
     width: 50%;
 }
- 
+
 /* Список ссылок Войти, Сравнить и Корзина */
 .header-icon-list {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin: 0;
     padding: 0;
@@ -237,15 +244,16 @@ a, button {
 }
 
 .header-icon-link{
-    color: inherit; 
+    color: inherit;
     font-size: 16px;
     line-height: 19px;
+    padding: 10px 20px;
+    box-sizing: border-box;
 }
 
 .header-icon-link:focus {
     border-radius: 20px;
     outline: 2px solid #AF4FFF;
-    outline-offset: 10px;
 }
 
 .header-icon-text {
@@ -259,6 +267,7 @@ a, button {
 
 .basket {
     margin-left: 40px;
+    padding-right: 0;
 }
 
 /* Popover корзины */
@@ -266,16 +275,21 @@ a, button {
     position: absolute;
     top: 32px;
     right: -85px;
-    z-index: 1;
+    z-index: 2;
     box-sizing: border-box;
     width: 320px;
     min-height: 218px;
-    padding: 20px;
     font-size: 16px;
     line-height: 20px;
     color: #ffffff;
     background-color: #000000;
     box-shadow: 0px 10px 0px rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+    display: none;
+}
+
+.popover-open {
+    /* display: block; */
 }
 
 .popover::before {
@@ -288,8 +302,64 @@ a, button {
     top: -6px;
 }
 
-.button-del {
+.popover-content {
+    padding: 20px;
+}
+
+.cart-items-list {
     padding: 0;
+    margin: 0;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: auto 180px auto;
+    gap: 0 23px;
+}
+
+.cart-item + .cart-item {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cart-item-title {
+    grid-column: 2 / 3;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.cart-item-button {
+    grid-column: 3 / 4;
+    padding: 0;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.number-and-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 44px;
+    margin: 20px -20px 0;
+    padding: 0 20px;
+    background-color: #1A1A1A;
+}
+
+.button-open-basket {
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+    text-transform: uppercase;
+    background-color: #ffffff;
+    font-family: "Raleway", sans-serif;
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: 4.2px;
+    cursor: pointer;
 }
 
 /* Каталог товаров и сервисные ссылки */
@@ -298,7 +368,7 @@ a, button {
     margin-top: 45px;
     box-sizing: border-box;
 }
-
+/* Каталог товаров */
 .navigation-catalog {
     position: relative;
     margin: 0;
@@ -307,12 +377,7 @@ a, button {
 }
 
 .catalog {
-    margin: 0;
-    padding: 0;
-}
-
-/* Список вложенных ссылок в Каталог товаров */
-.catalog-list {
+    position: relative;
     margin: 0;
     padding: 0;
 }
@@ -321,34 +386,141 @@ a, button {
 .catalog-link {
     font-family: "Raleway", sans-serif;
     color: inherit;
-    line-height: 21px; 
+    line-height: 21px;
     font-weight: 800;
     letter-spacing: 4.2px;
     text-transform: uppercase;
-}
-
-/* Кнопка раскрывающая "Каталог товаров" */
-.catalog-link::after {
-    position: absolute;
-    content: "";
-    width: 50px;
-    height: 50px;
-    right: -70px;
-    bottom: 10px;
-    border-radius: 50%;
-    border: 2px solid rgba(0, 0, 0, 0.2);
+    padding: 12px 20px;
+    box-sizing: border-box;
 }
 
 .catalog-link:focus {
-    outline: 2px solid #AF4FFF;
-    outline-offset: 15px;
-    border-radius: 25px;
+  outline: 2px solid #AF4FFF;
+  border-radius: 25px;
 }
 
 .catalog-link:active {
-    opacity: 0.3;
+  opacity: 0.3;
 }
 
+/* Кнопка раскрывающая "Каталог товаров" */
+.catalog-link-nested {
+  position: absolute;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    bottom: -10px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.catalog-link-nested::before {
+  position: absolute;
+  content: "";
+  width: 16px;
+  height: 2px;
+  background-color: rgba(0, 0, 0, 0.2);
+  top: 22px;
+  left: 15px;
+  margin: auto;
+}
+
+.catalog-link-nested::after {
+  position: absolute;
+  content: "";
+  width: 16px;
+  height: 2px;
+  background-color: rgba(0, 0, 0, 0.2);
+  top: 22px;
+  left: 15px;
+  transform: rotate(90deg);
+}
+
+.catalog-item-main:hover .catalog-link-nested {
+  border: 2px solid rgba(0, 0, 0, 1);
+}
+
+.catalog-item-main:hover .catalog-link-nested::after {
+  opacity: 0;
+}
+
+.catalog-item-main:hover .catalog-link-nested::before {
+  background-color: rgba(0, 0, 0, 1);
+}
+
+.catalog-item-main:hover .catalog-submenu {
+  display: block;
+}
+
+.catalog-item-main:active .catalog-link-nested {
+  border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.catalog-item-main:active .catalog-link-nested::before {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Блок вложенных ссылок в Каталог товаров */
+.catalog-submenu {
+  position: absolute;
+  z-index: 2;
+  width: 1160px;
+  min-height: 120px;
+  background-color: #FFE17F;
+  margin-top: 10px;
+  margin-left: -60px;
+  padding: 33px 60px 60px;
+  display: none;
+  box-sizing: border-box;
+}
+
+.catalog-list-column {
+  line-height: 18px;
+  padding: 0;
+}
+
+.catalog-list {
+  display: flex;
+  gap: 50px;
+  padding: 0;
+}
+
+/* Появление выпадающего каталога при фокусе */
+.catalog-item-main:focus-within .catalog-submenu {
+  display: block;
+}
+
+.catalog-item {
+  margin-bottom: 20px;
+}
+
+/* Ссылки внутри раскрывающегося меню каталога товаров */
+.catalog-item-link {
+  font-family: "Rubik", sans-serif;
+  font-size: 16px;
+  color: inherit;
+  box-sizing: border-box;
+  padding: 3px 15px 5px;
+}
+
+.catalog-item-link:hover {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.catalog-item-link:focus {
+  border: 0;
+  outline: 2px solid #AF4FFF;
+  box-sizing: border-box;
+  border-radius: 25px;
+}
+
+.catalog-item-link:active {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+/* Доставка, гарантия, контакты */
 .header-navigation-container {
     width: 50%;
     margin-left: auto;
@@ -379,18 +551,19 @@ a, button {
     font-family: "Raleway", sans-serif;
     color: inherit;
     font-weight: 800;
-    line-height: 21px; 
+    line-height: 21px;
     letter-spacing: 4.2px;
-    text-transform: uppercase; 
-    padding-bottom: 4px;
+    text-transform: uppercase;
+    /* padding: 15px 20px; */
+    box-sizing: border-box;
 }
 
 .navigation-link:hover:before {
     position: absolute;
+    content: "";
     right: 0;
     left: 0;
     bottom: -4px;
-    content: "";
     height: 2px;
     background-color: #000000;
 }
@@ -398,26 +571,12 @@ a, button {
 .navigation-link:focus{
     border-radius: 20px;
     outline: 2px solid #AF4FFF;
-    outline-offset: 10px;
 }
 
 .navigation-link:active {
     opacity: 0.3;
 }
 
-/* Появление выпадающего каталога при фокусе */
-.catalog-item-main:focus-within .catalog-list {
-    display: block;
-}
-
-/* Ссылки внутри раскрывающегося меню каталога товаров */
-.catalog-item-link {
-    font-family: "Rubik", sans-serif;
-    font-size: 16px;
-    line-height: 18px;
-    color: inherit;
-    letter-spacing: 3.6px;
-}
 /* ----------------------------/Header----------------------------- */
 
 
@@ -498,7 +657,7 @@ a, button {
 }
 
 /* Мелкий текст на слайдере */
-.slider-text { 
+.slider-text {
     margin-bottom: 30px;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -544,19 +703,50 @@ a, button {
     justify-content: space-between;
 }
 
-.slider-navigation {
+/* Точечная пагинация слайдера */
+.slider-pagination {
     margin-right: 60px;
 }
 
-.slider-navigation-list {
+.slider-pagination-list {
     padding: 0;
     margin: 0;
     display: flex;
-    vertical-align: top;
+    flex-wrap: wrap;
 }
 
-.slider-navigation-button {
+.slider-pagination-item:not(:last-child) {
+  margin-right: 22px;
+}
 
+.slider-pagination-button {
+  width: 12px;
+  height: 12px;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  border: 2px solid #000000;
+  box-sizing: border-box;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slider-pagination-button:hover {
+  border: 2px solid rgba(0, 0, 0, 0.6);
+}
+
+.slider-pagination-button:focus {
+  border: none;
+  outline: 2px solid #AF4FFF;
+  outline-offset: -2px;
+}
+
+.slider-pagination-button:active {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+.slider-pagination-button-current {
+  background-color: #000000;
 }
 
 
@@ -643,7 +833,7 @@ a, button {
     font-family: "Raleway", sans-serif;
     font-weight: 800;
     line-height: 24px;
-    font-size: 18px; 
+    font-size: 18px;
     color: inherit;
     letter-spacing: -0.48px;
 }
@@ -726,7 +916,7 @@ a, button {
 }
 
 .services-item:last-child {
-    margin-bottom: 0; 
+    margin-bottom: 0;
 }
 
 .services-decore-line {
@@ -781,7 +971,7 @@ a, button {
     margin: 90px auto 97px auto;
     justify-content: space-between;
     align-self: center;
-    background-color: #F0F0F0;  
+    background-color: #F0F0F0;
 }
 
 .about-the-company-delivery-container:focus {
@@ -823,23 +1013,28 @@ a, button {
     font-size: 20px;
     letter-spacing: 4.6px;
     color: #000000;
-} 
+}
 
 /* Иконка доп. информации */
 .info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-right: 33px;
     align-self: center;
     text-align: center;
-    line-height: 40px;
-    color: rgba(0, 0, 0, 0.4);
     width: 40px;
     height: 40px;
     border-radius: 50%;
     background-color: rgba(220, 220, 220, 0.5);
 }
 
-.about-the-company-delivery-container:hover .info {
-    color: #000000;
+.info-item path {
+  fill-opacity: 0.3;
+}
+
+.about-the-company-delivery-container:hover .info-item path {
+  fill-opacity: 1;
 }
 
 /* "О нас" и "Контакты" */
@@ -865,7 +1060,7 @@ a, button {
     padding-left: 20px;
 }
 
-/* Стили для заголовков "О нас" и "Контакты" */ 
+/* Стили для заголовков "О нас" и "Контакты" */
 .about-us-title,
 .contacts-title {
     margin: 0;
@@ -1005,9 +1200,10 @@ a, button {
 .field:focus {
     outline: none;
     background-color: #DCDCDC;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.1);
 }
 
-.field:valid {
+.field:focus:valid {
     border-bottom: 3px solid #000000;
 }
 
@@ -1032,6 +1228,7 @@ a, button {
 
 /* Кнопка "Подписаться" */
 .newsletter-button {
+    max-width: 260px;
     padding: 14px 40px;
     font-family: "Raleway", sans-serif;
     font-weight: 800;
@@ -1058,6 +1255,7 @@ a, button {
 }
 
 .newsletter-item {
+  max-width: 165px;
     align-self: center;
     margin-left: auto;
 }
@@ -1097,7 +1295,7 @@ a, button {
 
 /* Адрес */
 .footer-address-block {
-    width: 250px;
+    max-width: 250px;
 }
 
 .footer-contacts-address {
@@ -1110,7 +1308,7 @@ a, button {
 /* Сервисные ссылки */
 
 .footer-services-block {
-    width: 460px;
+    max-width: 460px;
 }
 
 .footer-services-list {
@@ -1131,7 +1329,7 @@ a, button {
     text-transform: uppercase;
     color: #ffffff;
     padding-bottom: 4px;
-} 
+}
 
 .footer-services-link:hover::before {
     content: "";
@@ -1203,8 +1401,8 @@ a, button {
 }
 
 .button-social:focus .social-link circle{
-    fill-opacity: 0; 
-    outline: 5px solid #AF4FFF; 
+    fill-opacity: 0;
+    outline: 5px solid #AF4FFF;
     border-radius: 50%;
 }
 
@@ -1224,10 +1422,14 @@ a, button {
 
 /* Номер телефона в футере */
 
+.footer-phone-block {
+  max-width: 280px;
+}
+
 .footer-contacts-phone {
     font-size: 16px;
     color: #ffffff;
-} 
+}
 
 .footer-contacts-phone:hover {
     color: #FFC700;
@@ -1263,6 +1465,286 @@ a, button {
 
 /* ------/Page-footer -------*/
 
+/* Модальное окно */
+
+.modal-container {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: none;
+}
+
+.modal {
+    position: relative;
+    margin: auto;
+    padding: 65px 70px 75px; /* Уменьшил паддинг на 10px, т.к. в макете паддинг считается не до бордера, а с его учетом */
+    background-color: #FFFFFF;
+    color: #000000;
+    border: 10px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.modal-auth {
+    width: 920px;
+}
+
+/* Кнопка "Закрыть" модальное окно */
+.modal-close-button {
+    position: absolute;
+    padding: 0;
+    top: 79px;
+    right: 68px;
+    width: 45px;
+    height: 45px;
+    width: 26px;
+    height: 26px;
+    background-color: transparent;
+    border: 0;
+    background-image: url("../image/icons/del-modal.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.modal-close-button:hover {
+  opacity: 0.6;
+}
+
+.modal-close-button:focus {
+  outline: 5px solid #AF4FFF;
+  outline-offset: 12px;
+  border-radius: 50%;
+}
+
+.modal-close-button:active {
+  opacity: 0.3;
+}
+
+.auth-form {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 40px;
+}
+
+/* Заголовок "Доставка под заказ" */
+.modal-title {
+    margin: 0;
+    margin-bottom: 58px;
+    font-family: "Raleway", sans-serif;
+    font-size: 50px;
+    font-weight: 800;
+    line-height: 50px;
+}
+
+.field-group {
+    position: relative;
+    font-family: inherit;
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+    outline: 1px solid red;
+}
+
+/* Input для имени и фамилии, почты*/
+.auth-form-field {
+    width: 360px;
+    height: 60px;
+    border: 0;
+    padding: 0 20px;
+    margin-top: 14px;
+    background-color: #F0F0F0;
+    font-family: inherit;
+    font-size: 18px;
+    line-height: 20px;
+    color: #444444;
+    box-sizing: border-box;
+}
+
+.text-under-input-login {
+  font-size: 14px;
+  line-height: 20px;
+  color: #FF3D3D;
+  width: 360px;
+
+}
+
+/* Иконка в поле имени и фамилии */
+.field-group:nth-child(1)::before {
+    position: absolute;
+    content: "";
+    background-image: url("../image/icons/name-modal.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 13px;
+    height: 12px;
+    right: 21px;
+    top: 60px;
+}
+
+/* Иконка в поле для ввода почты */
+.field-group:nth-child(2)::after {
+  position: absolute;
+  content: "";
+  background-image: url("../image/icons/email-modal.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 15px;
+  height: 12px;
+  right: 21px;
+  top: 60px;
+}
+
+/* Поле для ввода в поле "Что нужно привезти" */
+.auth-form-field-text {
+  width: 560px;
+  height: 60px;
+  border: 0;
+  padding: 0 20px;
+  margin-top: 14px;
+  background-color: #F0F0F0;
+  font-family: inherit;
+  font-size: 18px;
+  line-height: 20px;
+  color: #444444;
+  box-sizing: border-box;
+}
+
+/* Блок количества товаров */
+.number-product-modal {
+  /* margin: 18px 0; */
+  outline: 1px solid red;
+}
+
+/* Иконка info */
+.field-number-info {
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  background-color: #FFE17F;
+  background-image: url(../image/icons/info.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+  margin-left: 8px;
+  /* margin-bottom: 30px; */
+}
+
+.number-product {
+  display: flex;
+  height: 60px;
+  margin-top: 14px;
+}
+
+.input-number-product {
+  width: 60px;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 16px;
+  border: none;
+  background-color: #F0F0F0;
+}
+
+/* Убрать стрелки у инпута */
+.input-number-product::-webkit-outer-spin-button,
+.input-number-product::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+/* Кнопки +/- количества товаров */
+.minus-modal,
+.plus-modal {
+  position: relative;
+  width: 50px;
+  border: none;
+  padding: 0;
+  background-color: #F0F0F0;
+}
+
+/* Минус */
+.minus-modal::before {
+position: absolute;
+  content: "";
+  width: 16px;
+  height: 2px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  background-color:rgba(0, 0, 0, 0.3);
+}
+
+/* Плюс */
+.plus-modal::before {
+  position: absolute;
+    content: "";
+    width: 16px;
+    height: 2px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    background-color:rgba(0, 0, 0, 0.3);
+  }
+
+  .plus-modal::after {
+    position: absolute;
+      content: "";
+      width: 16px;
+      height: 2px;
+      margin: auto;
+      left: 0;
+      right: 0;
+      transform: rotate(90deg);
+      background-color:rgba(0, 0, 0, 0.3);
+    }
+
+    .minus-modal:hover::before,
+    .plus-modal:hover::before,
+    .plus-modal:hover::after {
+      background-color: #000000;
+    }
+
+  /* Кнопка "Отправить" */
+  .modal-button {
+    font-size: 18px;
+    margin-top: 54px;
+  }
+
+
+/*
+.field:hover {
+    border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+}
+
+.field:focus {
+    outline: none;
+    background-color: #DCDCDC;
+}
+
+.field:valid {
+    border-bottom: 3px solid #000000;
+}
+
+.field:invalid {
+    border-bottom: 3px solid #FF3D3D;
+}
+
+.field::placeholder {
+    color: rgba(44, 44, 44, 0.5);
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.field:hover::placeholder {
+    color: rgba(44, 44, 44, 0.7);
+} */
 
 
 /* -------Вторая страница--------------------- */
@@ -1394,7 +1876,7 @@ a, button {
     opacity: 0.2;
 }
 
-.arrow-down { 
+.arrow-down {
     margin-left: 20px;
 }
 
@@ -1540,7 +2022,7 @@ a, button {
 .control {
    position: relative;
    display: block;
-   padding-left: 37px; 
+   padding-left: 37px;
 }
 
 /* окно для checkbox */

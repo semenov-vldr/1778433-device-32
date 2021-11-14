@@ -82,7 +82,8 @@ a, button {
 
 .page-header-index {
     margin-top: 17px;
-    padding: 0 60px 167px 60px;
+    /* padding: 0 60px 152px; */
+    padding: 0 60px 152px 40px;
     box-sizing: border-box;
     color: #000000;
     background: linear-gradient(#FFFFFF 23px, #FFE17F 23px);
@@ -97,10 +98,16 @@ a, button {
     background: linear-gradient(#FFFFFF 23px, #FFE17F 23px);
 }
 
+.logo-link {
+  padding-left: 20px;
+}
+
+
 /* блок поиска */
 .search {
     position: relative;
     width: 516px;
+    padding-left: 20px;
 }
 
 /* Форма поиска (input) */
@@ -117,7 +124,7 @@ a, button {
     width: 16px;
     height: 16px;
     bottom: calc(50% - 8px);
-    right: 484px;
+    left: 20px;
 }
 
 /* Поисковая строка */
@@ -125,6 +132,7 @@ a, button {
     position: relative;
     width: 516px;
     height: 40px;
+    padding: 0;
     background-color: rgba(0, 0, 0, 0);
     border: none;
 }
@@ -169,7 +177,7 @@ a, button {
 
 /* Вводимый в поле поиска текст */
 .search-form input[type=search]{
-    padding-left: 56px;
+    padding-left: 36px;
     padding-right: 170px;
     font-size: 16px;
 }
@@ -231,16 +239,7 @@ a, button {
 }
 
 .header-icon-item {
-    position: relative;
     display: flex;
-}
-
-.header-icon-item:hover {
-    opacity: 0.6;
-}
-
-.header-icon-item:active {
-    opacity: 0.3;
 }
 
 .header-icon-link{
@@ -251,9 +250,21 @@ a, button {
     box-sizing: border-box;
 }
 
+.header-icon-link:hover {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.header-icon-link:hover img{
+  opacity: 0.6;
+}
+
 .header-icon-link:focus {
     border-radius: 20px;
     outline: 2px solid #AF4FFF;
+}
+
+.header-icon-link:active {
+  color: rgba(0, 0, 0, 0.3);
 }
 
 .header-icon-text {
@@ -265,15 +276,34 @@ a, button {
     margin-right: auto;
 }
 
+.basket-item {
+  position: relative;
+}
+
+.basket-item:hover .popover {
+  display: block;
+}
+
 .basket {
     margin-left: 40px;
     padding-right: 0;
 }
 
+/* Подложка для ссылки "Корзина" */
+.basket::after {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 20px;
+  left: 30px;
+  top: 25px;
+  background: rgba(0, 0, 0, 0);
+}
+
 /* Popover корзины */
 .popover {
     position: absolute;
-    top: 32px;
+    top: 40px;
     right: -85px;
     z-index: 2;
     box-sizing: border-box;
@@ -284,12 +314,7 @@ a, button {
     color: #ffffff;
     background-color: #000000;
     box-shadow: 0px 10px 0px rgba(0, 0, 0, 0.1);
-    pointer-events: none;
     display: none;
-}
-
-.popover-open {
-    /* display: block; */
 }
 
 .popover::before {
@@ -333,13 +358,14 @@ a, button {
 
 .cart-item-button {
     grid-column: 3 / 4;
-    padding: 0;
+    padding: 5px 0 0 0;
+    align-self: baseline;
     cursor: pointer;
     background: none;
     border: none;
 }
 
-.number-and-price {
+.number-and-price-basket {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -373,7 +399,7 @@ a, button {
     position: relative;
     margin: 0;
     padding: 0;
-    padding-bottom: 24px;
+    padding-right: 18px;
 }
 
 .catalog {
@@ -390,7 +416,8 @@ a, button {
     font-weight: 800;
     letter-spacing: 4.2px;
     text-transform: uppercase;
-    padding: 12px 20px;
+    /* padding: 12px 20px; */
+    padding-left: 20px;
     box-sizing: border-box;
 }
 
@@ -410,10 +437,12 @@ a, button {
     width: 50px;
     height: 50px;
     bottom: -10px;
+    right: -18px;
     border: 2px solid rgba(0, 0, 0, 0.2);
     border-radius: 50%;
     box-sizing: border-box;
     cursor: pointer;
+    transform: translateX(100%);
 }
 
 .catalog-link-nested::before {
@@ -1029,12 +1058,16 @@ a, button {
     background-color: rgba(220, 220, 220, 0.5);
 }
 
-.info-item path {
-  fill-opacity: 0.3;
+.info-item {
+  opacity: 0.3;
 }
 
-.about-the-company-delivery-container:hover .info-item path {
-  fill-opacity: 1;
+.about-the-company-delivery-container:hover .info {
+  background-color: #DCDCDC;
+}
+
+.about-the-company-delivery-container:hover .info-item {
+  opacity: 1;
 }
 
 /* "О нас" и "Контакты" */
@@ -1203,8 +1236,8 @@ a, button {
     border-bottom: 3px solid rgba(0, 0, 0, 0.1);
 }
 
-.field:focus:valid {
-    border-bottom: 3px solid #000000;
+.field:focus:not(:placeholder-shown) {
+  border-bottom: 3px solid #000000;
 }
 
 .field:invalid {
@@ -1476,7 +1509,6 @@ a, button {
     width: 100%;
     height: 100%;
     background-color: rgba(255, 255, 255, 0.8);
-    display: none;
 }
 
 .modal {
@@ -1530,6 +1562,13 @@ a, button {
   display: flex;
   flex-wrap: wrap;
   column-gap: 40px;
+  row-gap: 20px;
+}
+
+.auth-form-group {
+  border: none;
+  padding: 0;
+  margin: 0;
 }
 
 /* Заголовок "Доставка под заказ" */
@@ -1544,21 +1583,29 @@ a, button {
 
 .field-group {
     position: relative;
-    font-family: inherit;
-    font-size: 18px;
-    line-height: 20px;
-    font-weight: 700;
-    letter-spacing: -0.4px;
-    outline: 1px solid red;
+    margin: 0;
+}
+
+/* Заголовки инпутов */
+.auth-form-title {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: -0.4px;
+  margin-bottom: 14px;
+  padding: 0;
+}
+
+.title-number {
+  position: relative;
 }
 
 /* Input для имени и фамилии, почты*/
 .auth-form-field {
+  position: relative;
     width: 360px;
-    height: 60px;
     border: 0;
-    padding: 0 20px;
-    margin-top: 14px;
+    padding: 20px 50px 20px 20px;
     background-color: #F0F0F0;
     font-family: inherit;
     font-size: 18px;
@@ -1567,47 +1614,109 @@ a, button {
     box-sizing: border-box;
 }
 
+.auth-form-field:hover {
+  background-color: #EBEBEB;
+}
+
+.auth-form-field:focus {
+  outline: 5px solid #AF4FFF;
+}
+
+.auth-form-field:focus:not(:placeholder-shown) {
+  outline: 3px solid #000000;
+  background-color: #ffffff;
+}
+
+.input-email:invalid {
+  outline: 3px solid #FF3D3D;
+}
+
+.auth-form-field::placeholder {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 16px;
+}
+
+.auth-form-field-text::placeholder {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 16px;
+}
+
+.input-number-product::placeholder {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 16px;
+}
+
+.auth-form-field[type="text"] {
+  color: #000000;
+  font-size: 16px;
+}
+
+.input-email[type="email"] {
+  color: #000000;
+  font-size: 16px;
+}
+
+.auth-form-field-text[type="text"] {
+  color: #000000;
+  font-size: 16px;
+}
+
+.input-number-product[type="number"] {
+  color: #000000;
+  font-size: 16px;
+}
+
 .text-under-input-login {
   font-size: 14px;
   line-height: 20px;
   color: #FF3D3D;
-  width: 360px;
-
+  margin: 0;
+  margin-top: 10px;
 }
 
-/* Иконка в поле имени и фамилии */
-.field-group:nth-child(1)::before {
-    position: absolute;
-    content: "";
-    background-image: url("../image/icons/name-modal.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 13px;
-    height: 12px;
-    right: 21px;
-    top: 60px;
+.text-under-input-email {
+  font-size: 14px;
+  line-height: 20px;
+  color: #000000;
+  margin: 0;
+  margin-top: 10px;
 }
 
-/* Иконка в поле для ввода почты */
-.field-group:nth-child(2)::after {
+/* Иконка в поле имени */
+.icon-login-field::before {
+  z-index: 1;
+  position: absolute;
+  content: "";
+  background-image: url("../image/icons/name-modal.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 13px;
+  height: 12px;
+  right: 21px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Иконка в поле почты */
+.icon-email-field::before {
+  z-index: 1;
   position: absolute;
   content: "";
   background-image: url("../image/icons/email-modal.svg");
   background-repeat: no-repeat;
   background-position: center;
-  width: 15px;
+  width: 13px;
   height: 12px;
   right: 21px;
-  top: 60px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 /* Поле для ввода в поле "Что нужно привезти" */
 .auth-form-field-text {
   width: 560px;
-  height: 60px;
   border: 0;
-  padding: 0 20px;
-  margin-top: 14px;
+  padding: 20px;
   background-color: #F0F0F0;
   font-family: inherit;
   font-size: 18px;
@@ -1616,30 +1725,39 @@ a, button {
   box-sizing: border-box;
 }
 
-/* Блок количества товаров */
-.number-product-modal {
-  /* margin: 18px 0; */
-  outline: 1px solid red;
+.auth-form-field-text:hover {
+  background-color: #EBEBEB;
 }
 
-/* Иконка info */
-.field-number-info {
-  display: inline-block;
+.auth-form-field-text:focus {
+  outline: 5px solid #AF4FFF;
+}
+
+.auth-form-field-text:focus:not(:placeholder-shown) {
+  outline: 3px solid #000000;
+  background-color: #ffffff;
+}
+
+.number-product {
+  position: relative;
+  display: flex;
+  height: 60px;
+}
+
+/* Иконка Info (Количество) */
+.number-product::after {
+  position: absolute;
+  content: "";
   width: 26px;
   height: 26px;
+  right: 14px;
+  top: -10px;
+  transform: translateY(-100%);
   background-color: #FFE17F;
   background-image: url(../image/icons/info.svg);
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 50%;
-  margin-left: 8px;
-  /* margin-bottom: 30px; */
-}
-
-.number-product {
-  display: flex;
-  height: 60px;
-  margin-top: 14px;
 }
 
 .input-number-product {
@@ -1684,38 +1802,38 @@ position: absolute;
 /* Плюс */
 .plus-modal::before {
   position: absolute;
-    content: "";
-    width: 16px;
-    height: 2px;
-    margin: auto;
-    left: 0;
-    right: 0;
-    background-color:rgba(0, 0, 0, 0.3);
-  }
+  content: "";
+  width: 16px;
+  height: 2px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  background-color:rgba(0, 0, 0, 0.3);
+}
 
-  .plus-modal::after {
-    position: absolute;
-      content: "";
-      width: 16px;
-      height: 2px;
-      margin: auto;
-      left: 0;
-      right: 0;
-      transform: rotate(90deg);
-      background-color:rgba(0, 0, 0, 0.3);
-    }
+.plus-modal::after {
+  position: absolute;
+  content: "";
+  width: 16px;
+  height: 2px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  transform: rotate(90deg);
+  background-color:rgba(0, 0, 0, 0.3);
+}
 
-    .minus-modal:hover::before,
-    .plus-modal:hover::before,
-    .plus-modal:hover::after {
-      background-color: #000000;
-    }
+.minus-modal:hover::before,
+.plus-modal:hover::before,
+.plus-modal:hover::after {
+  background-color: #000000;
+}
 
-  /* Кнопка "Отправить" */
-  .modal-button {
-    font-size: 18px;
-    margin-top: 54px;
-  }
+/* Кнопка "Отправить" */
+.modal-button {
+  font-size: 18px;
+  margin-top: 54px;
+}
 
 
 /*
@@ -1833,9 +1951,6 @@ position: absolute;
     background-color: #EBEBEB;
 }
 
-.sorting-type {
-}
-
 .sorting {
     padding-left: 70px;
     margin-right: 52px;
@@ -1941,9 +2056,6 @@ position: absolute;
     color: #000000;
 }
 
-.range {
-}
-
 .range-scale {
     position: relative;
     height: 2px;
@@ -2015,9 +2127,6 @@ position: absolute;
     padding: 0;
 }
 
-.monopod-filter-item {
-}
-
 /* Label --> Checkbox (или radio) + наименование */
 .control {
    position: relative;
@@ -2025,7 +2134,7 @@ position: absolute;
    padding-left: 37px;
 }
 
-/* окно для checkbox */
+/* Окно для checkbox */
 .control-mark {
     position: absolute;
     top: 4px;
@@ -2096,7 +2205,6 @@ position: absolute;
     margin-top: 50px;
     font-size: 18px;
 }
-
 
 /* Карточки товаров + пагинация */
 .product-card-right-column {

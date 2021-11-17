@@ -45,11 +45,6 @@ body {
   margin: 0 auto;
 }
 
-/* У всех ссылок уберем подчеркивание */
-/* a {
-  text-decoration: none;
-} */
-
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -93,7 +88,6 @@ body {
   outline-offset: 5px;
   border-radius: 20px;
 }
-
 
 /* блок поиска */
 .search {
@@ -438,7 +432,6 @@ body {
   outline: 5px solid #AF4FFF;
 }
 
-
 /* Каталог товаров и сервисные ссылки */
 .navigation {
   display: flex;
@@ -454,12 +447,6 @@ body {
   padding-right: 18px;
   list-style-type: none;
 }
-
-/* .catalog {
-  position: relative;
-  margin: 0;
-  padding: 0;
-} */
 
 /* Навигация: "Каталог товаров" */
 .catalog-link {
@@ -846,7 +833,6 @@ body {
 
 
 /* Значение параметра на слайде */
-
 .parameter-list {
   display: flex;
   margin: 0;
@@ -1245,7 +1231,6 @@ body {
 
 
 /* Подзаголовки в разделе "Контакты" */
-
 .contacts-text {
   margin-top: 53px;
   margin-bottom: 30px;
@@ -1574,7 +1559,6 @@ body {
 }
 
 /* Номер телефона в футере */
-
 .footer-phone-block {
   max-width: 280px;
 }
@@ -1640,7 +1624,6 @@ body {
   position: relative;
   margin: auto;
   padding: 65px 70px 75px;
-  /* Уменьшил паддинг на 10px, т.к. в макете паддинг считается не до бордера, а с его учетом */
   background-color: #FFFFFF;
   color: #000000;
   border: 10px solid #000000;
@@ -1938,7 +1921,6 @@ body {
 }
 
 
-
 /* -------Вторая страница--------------------- */
 
 
@@ -2198,9 +2180,6 @@ body {
   border: none;
   appearance: textfield;
 }
-
-
-
 
 .monopod-range-input::-webkit-outer-spin-button,
 .monopod-range-input::-webkit-inner-spin-button {

@@ -63,6 +63,10 @@ body {
   overflow: hidden;
 }
 
+.hidden {
+  display: none;
+}
+
 /* ------------------------------Header--------------------------------- */
 
 .page-header-index {
@@ -287,6 +291,7 @@ body {
 .basket-link::before {
   position: absolute;
   content: "2";
+  z-index: 1;
   width: 21px;
   height: 21px;
   left: 6px;
@@ -672,9 +677,13 @@ body {
 /* ----Slider------ */
 
 .slider-item {
-  display: flex;
+  display: none;
   position: relative;
   margin-bottom: 70px;
+}
+
+.slider-item.active {
+  display: flex;
 }
 
 /* Кнопки вперед и назад на слайдере */
@@ -1033,8 +1042,21 @@ body {
 
 /* Права колонка с информацией в разделе Сервисы */
 .services-right-column {
+  display: none;
   width: 500px;
   margin: 70px 60px 0 116px;
+}
+
+.services-right-column.active {
+  display: block;
+}
+
+.services-image-block {
+  display: none;
+}
+
+.services-image-block.active {
+  display: block;
 }
 
 .services-title {
@@ -1703,10 +1725,6 @@ body {
   padding: 0;
 }
 
-.title-number {
-  position: relative;
-}
-
 .auth-form-name,
 .auth-form-email,
 .auth-form-text {
@@ -1812,6 +1830,20 @@ body {
   position: relative;
   display: flex;
   height: 60px;
+}
+
+.title-number {
+  position: relative;
+}
+
+.title-number::before {
+  position: absolute;
+  content: "";
+  width: 240px;
+  height: 20px;
+  left: -18px;
+  top: 20px;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 /* Иконка Info (Количество) */

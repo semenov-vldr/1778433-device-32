@@ -63,10 +63,6 @@ body {
   overflow: hidden;
 }
 
-.hidden {
-  display: none;
-}
-
 /* ------------------------------Header--------------------------------- */
 
 .page-header-index {

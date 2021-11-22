@@ -97,13 +97,15 @@
 
     <!--Навигация-->
     <nav class="navigation">
-      <ul class="navigation-catalog">
-        <li class="catalog-item-main">
+        <div class="catalog-item-main">
           <a class="catalog-link" href="#">Каталог товаров</a>
-          <div class="catalog-link-nested"></div>
-          <div class="catalog-submenu">
-            <ul class="catalog-list">
-              <ul class="catalog-list-column">
+        </div>
+        <div class="catalog-link-nested"></div>
+        <div class="catalog-submenu">
+
+          <ul class="catalog-list">
+            <li>
+              <ul class="catalog-list-inner">
                 <li class="catalog-item">
                   <a class="catalog-item-link" href="#">Виртуальная реальность</a>
                 </li>
@@ -114,7 +116,10 @@
                   <a class="catalog-item-link" href="#">Экшн-камеры</a>
                 </li>
               </ul>
-              <ul class="catalog-list-column">
+            </li>
+
+            <li>
+              <ul class="catalog-list-inner">
                 <li class="catalog-item">
                   <a class="catalog-item-link" href="#">Фитнес-браслет</a>
                 </li>
@@ -122,26 +127,28 @@
                   <a class="catalog-item-link" href="#">Умные часы</a>
                 </li>
               </ul>
-              <ul class="catalog-list-column">
+            </li>
+
+            <li>
+              <ul class="catalog-list-inner">
                 <li class="catalog-item">
                   <a class="catalog-item-link" href="#">Квадрокоптеры</a>
                 </li>
               </ul>
-            </ul>
-          </div>
-        </li>
-      </ul>
-      </ul>
+            </li>
+          </ul>
+        </div>
+
 
       <div class="header-navigation-container">
         <ul class="navigation-list">
           <li class="navigation-item">
             <a class="navigation-link" href="#">Доставка</a>
           </li>
-          <li class="navigation-item warranty-header">
+          <li class="navigation-item">
             <a class="navigation-link" href="#">Гарантия</a>
           </li>
-          <li class="navigation-item contacts-header">
+          <li class="navigation-item">
             <a class="navigation-link" href="#">Контакты</a>
           </li>
         </ul>
@@ -311,7 +318,7 @@
               <!--/Фильтр цвета-->
 
               <!--Фильтр bluetooth-->
-              <fieldset class="monopod-filter-group">
+              <fieldset class="monopod-filter-group bluetooth-filter">
                 <legend class="monopod-filter-title">Bluetooth</legend>
 
                 <ul class="monopod-filter-list">
@@ -360,7 +367,7 @@
                 <li class="product-card-item">
                   <a class="product-card-image-link" href="#">
                     <img class="product-card-image" src="./image/catalog/product-2.jpg" width="360" height="380" alt="">
-                    <span class="product-card-title">Профессиональная селфи-палка</span>
+                    <span class="product-card-title">Профессиональная <br> селфи-палка</span>
                     <span class="product-card-price">1 500 ₽</span>
                   </a>
                   <div class="product-card-button">
@@ -372,7 +379,7 @@
                 <li class="product-card-item">
                   <a class="product-card-image-link" href="#">
                     <img class="product-card-image" src="./image/catalog/product-3.jpg" width="360" height="380" alt="">
-                    <span class="product-card-title">Непотопляемая селфи-палка</span>
+                    <span class="product-card-title">Непотопляемая <br> селфи-палка</span>
                     <span class="product-card-price">2 500 ₽</span>
                   </a>
                   <div class="product-card-button">
@@ -567,7 +574,6 @@
           </a>
         </div>
       </div>
-    </div>
     </div>
   </footer>
   <!---------------------------/Футер------------------------------->

@@ -98,13 +98,15 @@
 
     <!--Навигация-->
     <nav class="navigation">
-      <ul class="navigation-catalog">
-        <li class="catalog-item-main">
-          <a class="catalog-link" href="#">Каталог товаров</a>
-          <div class="catalog-link-nested"></div>
-          <div class="catalog-submenu">
-            <ul class="catalog-list">
-              <ul class="catalog-list-column">
+      <div class="catalog-item-main">
+        <a class="catalog-link" href="#">Каталог товаров</a>
+      </div>
+      <div class="catalog-link-nested"></div>
+        <div class="catalog-submenu">
+
+          <ul class="catalog-list">
+            <li>
+              <ul class="catalog-list-inner">
                 <li class="catalog-item">
                   <a class="catalog-item-link" href="#">Виртуальная реальность</a>
                 </li>
@@ -115,7 +117,10 @@
                   <a class="catalog-item-link" href="#">Экшн-камеры</a>
                 </li>
               </ul>
-              <ul class="catalog-list-column">
+            </li>
+
+            <li>
+              <ul class="catalog-list-inner">
                 <li class="catalog-item">
                   <a class="catalog-item-link" href="#">Фитнес-браслет</a>
                 </li>
@@ -123,26 +128,28 @@
                   <a class="catalog-item-link" href="#">Умные часы</a>
                 </li>
               </ul>
-              <ul class="catalog-list-column">
+            </li>
+
+            <li>
+              <ul class="catalog-list-inner">
                 <li class="catalog-item">
                   <a class="catalog-item-link" href="#">Квадрокоптеры</a>
                 </li>
               </ul>
-            </ul>
-          </div>
-        </li>
-      </ul>
-      </ul>
+            </li>
+          </ul>
+        </div>
+
 
       <div class="header-navigation-container">
         <ul class="navigation-list">
           <li class="navigation-item">
             <a class="navigation-link" href="#">Доставка</a>
           </li>
-          <li class="navigation-item warranty-header">
+          <li class="navigation-item">
             <a class="navigation-link" href="#">Гарантия</a>
           </li>
-          <li class="navigation-item contacts-header">
+          <li class="navigation-item">
             <a class="navigation-link" href="#">Контакты</a>
           </li>
         </ul>
@@ -397,8 +404,8 @@
           <div class="services-right-column active">
             <!--Доставка-->
             <h2 class="services-title">Доставка</h2>
-            <p class="services-description">Мы с удовольствием доставим ваш товар прямо
-              к вашему подъезду совершенно бесплатно! Ведь мы неплохо заработаем, поднимая его на ваш этаж.</p>
+            <p class="services-description">Мы с удовольствием доставим ваш товар прямо <br>
+              к вашему подъезду совершенно бесплатно! Ведь <br> мы неплохо заработаем, поднимая его на ваш этаж.</p>
           </div>
           <div class="services-image-block active">
             <img class="service-image" src="./image/services/delivery-services.svg" width="136" height="164"
@@ -474,7 +481,7 @@
             <a class="contacts-phone" href="tel:+78128121212">+7 (812) 812-12-12</a>
             <h3 class="contacts-subtitle-second">Время работы</h3>
             <p class="working-hours">пн—пт: с 10:00 до 22:00 <br> cб—вс: с 10:00 до 19:00</p>
-            <a class="button-about-us button-yellow-light-line" href="#">Напишите нам</a>
+            <a class="button-contacts button-yellow-light-line" href="#">Напишите нам</a>
           </div>
         </div>
         <!--/Контакты-->
@@ -635,7 +642,6 @@
         </div>
       </div>
     </div>
-    </div>
   </footer>
   <!---------------------------/Футер------------------------------->
 
@@ -694,4 +700,5 @@
     </section>
   </div>
 </body>
+
 </html>
